@@ -3,3 +3,4 @@ Am folosit 2 fisiere:unul in VSC, C# si un fisier txt.
 Add, commit, push si pull este facut din consola pentru cel txt.
 
 demo
+demox2
