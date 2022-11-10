@@ -1,7 +1,33 @@
-Giurgica Sorin
+	1.Git homework
+
 Am folosit 2 fisiere:unul in VSC, C# si un fisier txt.
 Add, commit, push si pull este facut din consola pentru cel txt.
 
-demo
-demox2
-demox3
+	2. Pseudocode homework
+
+2.2. Going to work:
+	1. setting the alarm the previous day
+	2. phone charging
+	3. to change into pajamas	
+	4. to put me to bed
+	5. to sleep
+	6. to sound the alarm
+	7. get out from bed
+	8. to go to the toilet
+	9. hand wash
+	10.face wash
+	11.brushing the teeth
+	12.eat a banana
+	13.to get dressed
+	14.put on my shoes
+	15.take my wallet
+	16.take my phone
+	17.to go out at home
+	18.wait the bus
+	19.take the bus
+	20.entrance to the building of the workplace
+
+	Sorting algorithm:
+	-I have 10 day task and they have to be sorted:
+		9 1 5 7 6 2	3 4 10 8 => 1 2 3 4 5 6 7 8 9 10.
+
