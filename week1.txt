@@ -1,11 +1,10 @@
-	1.Git homework
+	 1.Git homework
 
 Am folosit 2 fisiere:unul in VSC, C# si un fisier txt.
 Add, commit, push si pull este facut din consola pentru cel txt.
 
-	2. Pseudocode homework
-
-2.2. Going to work:
+	 2. Pseudocode homework
+		2.2. Going to work:
 	1. setting the alarm the previous day
 	2. phone charging
 	3. to change into pajamas	
@@ -31,3 +30,69 @@ Add, commit, push si pull este facut din consola pentru cel txt.
 	-I have 10 day task and they have to be sorted:
 		9 1 5 7 6 2	3 4 10 8 => 1 2 3 4 5 6 7 8 9 10.
 
+	 4. Pseudocode:
+		4.1 The value of the tax taken by an ATM for a withdraw operation:
+	
+	START
+	WHILE someone wants to withdraw money
+		INPUT amount withdrawn
+		FOR amount calculate a tax value 0.5% of the amount
+			IF tax value less than 1$
+				tax value is 1$
+			ENDIF
+		ENDFOR
+	ENDWHILE
+	
+		//Code:
+	withdrawOperation=true;
+	while(withdrawOperation){
+		int amount=Console.ReadLine();//amount withdrawn
+		int tax=0.5/100*amount;
+		if(tax<1){
+			tax=1;
+		}
+	}
+
+		4.2 Algorithm that calculates how many banknotes your ATM has to charge for the amount entered:
+	
+	START
+	INPUT amount entered
+	FOR each entered amount calculates
+		dividing by 500 AND the rest of the division
+		dividing the rest by 200 AND the rest
+		dividing the rest by 100 AND the rest
+		dividing the rest by 50 AND the rest
+		dividing the rest by 20 AND the rest
+		dividing the rest by 10 AND the rest
+		dividing the rest by 5 AND the rest
+		dividing the rest by 1 AND the rest
+	ENDFOR
+		
+
+	//code
+	bool withdrawOperation=true;
+	if(withdrawOperation){
+		int amount=(Convert.ToInt32(Console.ReadLine()));//amount withdrawn
+		int rest=0;
+		if(amount/500!=0){
+			rest=amount%500;
+			Console.WriteLine(rest+"x500");
+		}
+		if(amount/200!=0){
+			rest=amount/200;
+			Console.WriteLine(rest+"x200");
+		}
+		if(amount/100!=0){
+			rest=amount/100;
+			Console.WriteLine(rest+"x100");
+		}
+		if(amount/0!=0){
+			rest=amount/100;
+			Console.WriteLine(rest+" x100");
+		}
+	}
+
+		amount/500=a;
+		amount/200=b;
+		amount/100=c;
+			

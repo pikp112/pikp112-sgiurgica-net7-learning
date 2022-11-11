@@ -1,2 +1,0 @@
-Giurgica Sorin
-Am reusit
