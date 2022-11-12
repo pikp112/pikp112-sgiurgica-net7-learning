@@ -1,7 +1,7 @@
 	 1.Git homework
 
-Am folosit 2 fisiere:unul in VSC, C# si un fisier txt.
-Add, commit, push si pull este facut din consola pentru cel txt.
+//Am folosit 2 fisiere:unul in VSC, C# si un fisier txt.
+//Add, commit, push si pull este facut din consola pentru cel txt.
 
 	 2. Pseudocode homework
 		2.2. Going to work:
@@ -36,10 +36,11 @@ Add, commit, push si pull este facut din consola pentru cel txt.
 	START
 	WHILE someone wants to withdraw money
 		INPUT amount withdrawn
-		FOR amount calculate a tax value 0.5% of the amount
+		FOR amount calculate a tax value 0.5% of the amount and SET it
 			IF tax value less than 1$
 				tax value is 1$
 			ENDIF
+			PRINT tax value
 		ENDFOR
 	ENDWHILE
 	
@@ -56,43 +57,61 @@ Add, commit, push si pull este facut din consola pentru cel txt.
 		4.2 Algorithm that calculates how many banknotes your ATM has to charge for the amount entered:
 	
 	START
+	FOREACH entered amount calculates
 	INPUT amount entered
-	FOR each entered amount calculates
-		dividing by 500 AND the rest of the division
-		dividing the rest by 200 AND the rest
-		dividing the rest by 100 AND the rest
-		dividing the rest by 50 AND the rest
-		dividing the rest by 20 AND the rest
-		dividing the rest by 10 AND the rest
-		dividing the rest by 5 AND the rest
-		dividing the rest by 1 AND the rest
-	ENDFOR
+		dividing by 500, 100, 50, 20, 10, 5, 1 AND the rest of the division
+			SET how many times the amount AND the rest is divided by 500, 100, 50, 20 , 5 or 1
+			PRINT the number of divisions
+	ENDFOREACH
 		
 
 	//code
 	bool withdrawOperation=true;
-	if(withdrawOperation){
+	while(withdrawOperation){
 		int amount=(Convert.ToInt32(Console.ReadLine()));//amount withdrawn
-		int rest=0;
-		if(amount/500!=0){
-			rest=amount%500;
-			Console.WriteLine(rest+"x500");
+		if(amount!=0){
+		if(amount>=500){
+			int banknoteOf500=amount/500;
+			Console.Write("{0}x500",banknoteOf500)};
+			amount=amount-(500*banknoteOf500);
 		}
-		if(amount/200!=0){
-			rest=amount/200;
-			Console.WriteLine(rest+"x200");
+		if(amount>=200){
+			int banknoteOf200=amount/200;
+			Console.Write(" {0}x200",banknoteOf200)};
+			amount=amount-(200*banknoteOf200);
 		}
-		if(amount/100!=0){
-			rest=amount/100;
-			Console.WriteLine(rest+"x100");
+		if(amount>=100){
+			int banknoteOf100=amount/100;
+			Console.Write(" {0}x100",banknoteOf100)};
+			amount=amount-(100*banknoteOf100);
 		}
-		if(amount/0!=0){
-			rest=amount/100;
-			Console.WriteLine(rest+" x100");
+		if(amount>=50){
+			int banknoteOf50=amount/50;
+			Console.Write(" {0}x50",banknoteOf50)};
+			amount=amount-(50*banknoteOf50);
 		}
+		if(amount>=20){
+			int banknoteOf20=amount/20;
+			Console.Write(" {0}x20",banknoteOf20)};
+			amount=amount-(20*banknoteOf20);
+		}
+		if(amount>=10){
+			int banknoteOf10=amount/10;
+			Console.Write(" {0}x10",banknoteOf10)};
+			amount=amount-(10*banknoteOf10);
+		}
+		if(amount>=5){
+			int banknoteOf5=amount/5;
+			Console.Write(" {0}x5",banknoteOf5)};
+			amount=amount-(5*banknoteOf5);
+		}
+		if(amount>=1){
+			int banknoteOf1=amount;
+			Console.Write(" {0}x1",banknoteOf1)};
+		}
+	   }
 	}
 
-		amount/500=a;
-		amount/200=b;
-		amount/100=c;
+	//if something is wrong, please just tell me and I will try again
+
 			
