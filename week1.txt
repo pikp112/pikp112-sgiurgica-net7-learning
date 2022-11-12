@@ -109,7 +109,9 @@
 			int banknoteOf1=amount;
 			Console.Write(" {0}x1",banknoteOf1)};
 		}
-	   }
+	   }else{
+	   	Console.WriteLine("A value of 0 was entered as the withdrawal amount.");	
+		}
 	}
 
 	//if something is wrong, please just tell me and I will try again
