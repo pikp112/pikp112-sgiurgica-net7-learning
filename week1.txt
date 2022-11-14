@@ -4,54 +4,69 @@
 //Add, commit, push si pull este facut din consola pentru cel txt.
 
 	 2. Pseudocode homework
-		2.2. Going to work:
-	1. setting the alarm the previous day
-	2. phone charging
-	3. to change into pajamas	
-	4. to put me to bed
-	5. to sleep
-	6. to sound the alarm
-	7. get out from bed
-	8. to go to the toilet
-	9. hand wash
-	10.face wash
-	11.brushing the teeth
-	12.eat a banana
-	13.to get dressed
-	14.put on my shoes
-	15.take my wallet
-	16.take my phone
-	17.to go out at home
-	18.wait the bus
-	19.take the bus
-	20.entrance to the building of the workplace
+		2.2.1 Going to work:
+1. setting the alarm on the previous day
+2. phone charging
+3. to change into pajamas
+4. to put me to bed
+5. to sleep
+6. if the alarm sounds, get out of bed, else go to step 13
+8. to go to the toilet
+9. look for liquid soap
+10. if you have liquid soap, wash it tomorrow, else, go to step 9
+11. washing the face
+12. looking for toothpaste
+13. if you have toothpaste, wash your lips, else go to step 11
+14. eat a banana
+15. you get dressed quickly
+16. put on my shoes
+17. take my wallet
+18. take my phone
+19. to leave from home
+20. see what the next bus is
+21. if the bus comes to the station, take it, ele go to step 20
+22. entrance to the workplace building
 
-	Sorting algorithm:
-	-I have 10 day task and they have to be sorted:
-		9 1 5 7 6 2	3 4 10 8 => 1 2 3 4 5 6 7 8 9 10.
+		2.2.2Sorting algorithm:
+	- Am un bon fiscal cu 6 produse diferite, cu preturi diferite, exprimate in lei, dupa cum urmeaza:
+		suc de mere: 10
+		paine: 6	
+		fructe de mare: 32
+		banane: 8
+		lapte: 7
+		apa: 18
+	  Algoritmul de sortare este:
+	Step 1: Parcurgem pretul fiecarui produs, ce formeaza un sir de numere.
+	Step 2: Scriem primul element.
+	Step 3: Pentru toate elementele din lista, parcurgem pasii 4-5.
+	Step 4: Pentru elementul curent, verificam daca urmatorul element este mai mare sau mai mic sau egal cu acesta.
+	Step 5: Daca elementul curent este mai mic sau egal decat urmatorul element, mentinem elementul curent pe pozitia 0. (prima pozitie practic)
+		  Altfel daca elementul curent este mai mare decat urmatorul element, inlocuim elementul de pe pozitia curenta (0, in acest caz) cu elementul de pe pozitia urmatoare(1, in acest caz).
+	Step 6: Returnam sirul de elemente in ordine crescatoare si il citim.
 
 	 4. Pseudocode:
 		4.1 The value of the tax taken by an ATM for a withdraw operation:
 	
-	START
-	WHILE someone wants to withdraw money
-		INPUT amount withdrawn
-		FOR amount calculate a tax value 0.5% of the amount and SET it
-			IF tax value less than 1$
-				tax value is 1$
-			ENDIF
-			PRINT tax value
-		ENDFOR
-	ENDWHILE
+	Step 1: Se introduce cardul in bancomat pentru acces.
+	Step 2: Se citeste pinul introdus de utilizator.
+	Step 3: Daca pinul introdus este corect, se merge la pasul urmator, altfel, se merge la pasul 9.
+	Step 4: Se citeste optiunea de retragere numerar.
+	Step 5: Daca suma este integer si nu depaseste suma din cont, atunci se calcueaza taxa de retragere. Altfel se merge la pasul 9.
+	Step 6: Se calculeaza taxa de retragere, egala cu (0,5/100*suma introdusa).
+	Step 7: Daca taxa de retragere mai mare sau egala cu 1$, citeste si scrie taxa respectiva. Altfel taxa de retragere este 1$.
+	Step 8: Se calcueaza noul sold al contului, egal cu vechiul sold din care se scade suma ceruta de la taste pentru extragere si taxa de retragere.
+	Step 9: Operatiunea s-a terminat si cardul este scos din bancomat.
+
 	
-		//Code:
-	withdrawOperation=true;
-	while(withdrawOperation){
-		int amount=Console.ReadLine();//amount withdrawn
-		int tax=0.5/100*amount;
-		if(tax<1){
-			tax=1;
-		}
+		//Code, only for withdraw operation:
+	int sold;
+	int withrawAmount=Convert.ToInt16(Console.ReadLine());
+	int tax=0.5/100*withrawAmount;
+		if(tax>=1){
+			tax=tax;
+		}else {
+			tax=1;}
+		sold-=withrawAmount+tax;
 	}
 
 		4.2 Algorithm that calculates how many banknotes your ATM has to charge for the amount entered:
