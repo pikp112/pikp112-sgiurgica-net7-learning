@@ -19,14 +19,13 @@
     int num2=Convert.ToInt32(System.Console.ReadLine());
     System.Console.WriteLine("Introduceti al treilea numar:");
     int num3=Convert.ToInt32(System.Console.ReadLine());
-    if(num1>num2 && num1>num3){
+    if(num1>=num2 && num1>=num3){
     System.Console.WriteLine("Maximum number is: {0}",num1);
-    }else if(num1>num2 && num1<num3){
-    System.Console.WriteLine("Maximum number is: {0}",num3);
     }
-    if(num2>num1 && num2>num3){
+    else if(num2>=num1 && num2>=num3){
     System.Console.WriteLine("Maximum number is: {0}",num2);
-    }else if(num2>num1 && num2<num3){
+    }
+    else {
     System.Console.WriteLine("Maximum number is: {0}",num3);
     }
 
