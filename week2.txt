@@ -1,35 +1,53 @@
 	//Data structures homework
-	2.	int[,] biArray = new Array[4,3]{  123 345 567
-            					 12  56  -12
-            					 34  -98 65
-            					 765 543 321};
-	Console.WriteLine(biArray[1,1]);
-	Console.WriteLine(biArray[2,1]);
+	2.	int[,] biArray = new int[4, 3] { {123, 345, 567 },
+                                            { 12,  56,  -1},
+                                            { 34,  -98, 65 },
+                                            { 765, 543, 321}};
+            Console.WriteLine(biArray[1, 1]);
+            Console.WriteLine(biArray[2, 1]);
 
-	3. Console.WriteLine();
-	   List<string> names=new List<string>();
-	   Console.WriteLine("Verificati daca un nume este in lista \"names\": ")
-	   string namePerson=Console.RealLine();
-	   if(names.Contains(namePerson)){
-		Console.WriteLine("Numele este in lista");}
-		else{ Console.WriteLine("Numele va fi adaugat in lista";)
-			names.Add(namePerson);
-		} 
-	Console.WriteLine($"Noua lista contine {0} itemi.",names.Count)
+	3.  Console.WriteLine();
+            List<string> names = new List<string>();
+            Console.WriteLine("Verificati daca un nume este in lista \"names\": ");
+            string namePerson = Console.ReadLine();
+            if (names.Contains(namePerson))
+            {
+                Console.WriteLine("Numele este in lista");
+            }
+            else
+            {
+                Console.WriteLine("Numele va fi adaugat in lista");
+			    names.Add(namePerson);
+                Console.WriteLine("Noua lista va fi: ");
+                foreach (string name in names)
+                {
+                    Console.WriteLine(name);
+                }
+            }
+            Console.WriteLine("Noua lista contine {0} itemi.", names.Count);
 	
 	4. Console.WriteLine();
-	   Stack<int> myStack=new Stack<int>(2);
-	   Console.WriteLine("Introduceti primul numar din stiva: ");
-	   int num1=Convert.ToInt32(Console.ReadLine());
-	   myStack.Push(num1);
-	   Console.WriteLine("Introduceti al doilea numar din stiva: ");
-	   int num2=Convert.ToInt32(Console.ReadLine());
-  	   myStack.Push(num2);
-	   int sum=myStack(0)+myStack(1);
-	   if(myStack.Contains(30) || sum==30){Console.WriteLine("true");
-		}
-		else{ Console.WriteLine("false");
-		}
+            Stack<int> myStack = new Stack<int>(2);
+            Console.WriteLine("Introduceti primul numar din stiva: ");
+            int num1 = Convert.ToInt32(Console.ReadLine());
+            myStack.Push(num1);
+            Console.WriteLine("Introduceti al doilea numar din stiva: ");
+            int num2 = Convert.ToInt32(Console.ReadLine());
+            myStack.Push(num2);
+            int sum = myStack.ElementAt(0) + myStack.ElementAt(1);
+            if (myStack.Contains(30) || sum == 30)
+            {
+                Console.WriteLine("true");
+            }
+            else
+            {
+                Console.WriteLine("false");
+            }
+            Console.WriteLine("Lista dumneavoastra este: ");
+            foreach(int i in myStack)
+            {
+                Console.WriteLine(i);
+            }
 	
 	5.Console.WriteLine();
 	  Queue<int> myQueue=new Queue<int>(5);
