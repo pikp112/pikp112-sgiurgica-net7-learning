@@ -1,0 +1,193 @@
+            //1.Given an array of integer numbers, print the total of all the values that are even numbers.
+            //[1, 2, 3, 4, 5]->total = 6
+
+
+            Console.WriteLine("Input the array's length: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Input an array of integer numbers: ");
+            int[] myArray= new int[n];
+            int sumEvenNumbers= 0;
+            for(int i = 0;i<5;i++)
+            {
+                int numbers=Convert.ToInt32(Console.ReadLine());
+                myArray[i]=numbers;
+            }
+            for(int j=0;j<myArray.Length;j++)
+            {
+                if (myArray[j] % 2 == 0)
+                {
+                    sumEvenNumbers += myArray[j];
+                }
+            }
+            Console.WriteLine($"The value of all even numbers from myArray is {sumEvenNumbers}");
+            
+			
+			
+            //2.Find if an array of integer numbers contains duplicates and display them if so.
+            //[1, 2, 3, 3, 4]-> 3
+
+            Console.WriteLine("Input the array's length: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Input an array of integer numbers: ");
+            int[] myArray2 = new int[n];
+
+            for (int i = 0; i < myArray2.Length; i++)
+            {
+                int numbers = Convert.ToInt32(Console.ReadLine());
+                myArray2[i] = numbers;
+            }
+            for (int i = 0; i < myArray2.Length; i++)
+            {
+                for (int j = i + 1; j < myArray2.Length; j++)
+                {
+                    if (myArray2[i] == myArray2[j])
+                    {
+                        Console.WriteLine(myArray2[j] + " is duplicated");
+                    }
+                }
+
+            }
+			
+			
+			
+            //3.Check if there are duplicates in a list of strings. If yes, remove the them.
+            //{ "a", "b", "b", "c", "c", "d"} -> { "a", "b", "c", "d"}
+
+            Console.WriteLine("Input the length's list: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Input a list of chars: ");
+            List<char> list1 = new List<char>();
+            for (int i = 0; i < n+1; i++)
+            {
+                char chars1 = Convert.ToChar(Console.ReadLine());
+                list1.Add(chars1);
+            }
+            for (int i = 0; i < list1.Count; i++)
+            {
+                for (int j = i + 1; j < list1.Count; j++)
+                {
+                    if (list1[i] == list1[j])
+                    {
+                        list1.RemoveAt(j);
+                    }
+                }
+            }
+
+            Console.WriteLine("list without duplicates is: ");
+            foreach (char c in list1)
+            {
+                Console.Write(c + " ");
+            }
+			
+			
+			
+			
+			//4.Write a program to count the frequency of each element in an array.
+            //[1, 4, 5, 2, 1, 4, 3, 1, 2] -> 1 - 3 times, 4 - 2 times, 5 - one time, 2 - 2 times, 3 - one time
+
+            Console.WriteLine("Input the array's length: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Input an array of integer numbers: ");
+            int[] myArray4 = new int[n];
+
+            for (int i = 0; i < myArray4.Length; i++)
+            {
+                int numbers4 = Convert.ToInt32(Console.ReadLine());
+                myArray4[i] = numbers4;
+            }
+           
+            Dictionary<int, int> freqData = new Dictionary<int, int>();
+
+            foreach (int item in myArray4)
+                if (freqData.TryGetValue(item, out int freq))
+                    freqData[item] = freq + 1;
+                else
+                    freqData.Add(item, 1);
+
+            for(int index=0;index<freqData.Count;index++)
+            {
+                var item = freqData.ElementAt(index); //every item of dictionary
+                var itemKey = item.Key; //every key of dictionary
+                var itemValue = item.Value; //every value of key's dictionary
+                if (index == freqData.Count - 1)
+                {
+                    Console.Write($" {itemKey} - {itemValue} times.");
+                }
+                else Console.Write($"{itemKey} - {itemValue} times, ");
+            }
+
+
+
+
+            //5.Read an array from the console and separate odd and even values into 2 arrays.
+            //[3, 4, 5, 6, 7, 8]->Odd array: [3, 5, 7], Even array: [4, 6, 8]
+
+            Console.WriteLine("Input the array's length: ");
+            int n=Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Input an array of integer numbers: ");
+            int[] myArray5 = new int[n];
+            int[] oddArray = new int[n];
+            int[] evenArray = new int[n];
+
+            for (int i = 0; i < myArray5.Length; i++)
+            {
+                int numbers5 = Convert.ToInt32(Console.ReadLine());
+                myArray5[i] = numbers5;
+            }
+            for (int i = 0, j = 0; i < myArray5.Length && j < myArray5.Length; i++, j++)
+            {
+                if (myArray5[i] == 0)
+                {
+                    Console.WriteLine("0 is a null value.");
+                }
+                if (myArray5[i] % 2 == 0)
+                    {
+                        evenArray[j] = myArray5[i];
+                    }
+
+                if (myArray5[i] % 2 != 0)
+                    {
+                        oddArray[j] = myArray5[i];
+                    }
+
+            }
+            oddArray=oddArray.Where(t=>t!=0).ToArray();
+            evenArray=evenArray.Where(t=>t!=0).ToArray();
+            Console.Write("Odd array: [");
+            for(int i=0; i < oddArray.Length;i++)
+            {
+                if (i == oddArray.Length-1)
+                {
+                    Console.Write(oddArray[i] + "]");
+                }
+                else if ( oddArray[i] != 0)
+                {
+                    Console.Write(oddArray[i] +", ");
+                }
+            }
+            Console.Write(", Even array: [");
+            for (int i = 0; i < evenArray.Length; i++)
+            {
+                if (i == evenArray.Length-1)
+                {
+                    Console.Write(evenArray[i] + "]");
+
+                }
+                else if (evenArray[i] != 0)
+                {
+                    Console.Write(evenArray[i] + ", ");
+                }
+            }
+            Console.Write("\nMy array is: [");
+            for (int i = 0; i < myArray5.Length; i++)
+            {
+                if (i == myArray5.Length - 1)
+                {
+                    Console.Write(myArray5[i] + "]");
+
+                }
+                else if (myArray5[i] != 0)
+                {
+                    Console.Write(myArray5[i] + ", ");
+                }
+            }
