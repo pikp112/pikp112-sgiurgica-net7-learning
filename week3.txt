@@ -1,4 +1,6 @@
-            //1.Given an array of integer numbers, print the total of all the values that are even numbers.
+			//Loops homework            
+
+		//1.Given an array of integer numbers, print the total of all the values that are even numbers.
             //[1, 2, 3, 4, 5]->total = 6
 
 
@@ -191,3 +193,113 @@
                     Console.Write(myArray5[i] + ", ");
                 }
             }
+
+
+
+
+			//Algorithms homework
+		
+
+			// BUBBLE Sort (compara element-element din perechi ale unei structuri, pana cand structa este ordonata crescator integral)
+			
+			Console.WriteLine("Input the list's count: ");
+            int n=Convert.ToInt32(Console.ReadLine());
+
+            List<int> list1 = new List<int>();
+            Console.WriteLine("Input element's list: ");
+            for(int i=0; i < n; i++)
+            {
+                int elemList=Convert.ToInt32(Console.ReadLine());
+                list1.Add(elemList);
+            }
+            for(int i=0;i< n; i++)
+            {
+                for(int j = i + 1; j < n; j++)
+                {
+                    if (list1[i] > list1[j])
+                    {
+                        int aux = list1[i];
+                        list1[i] = list1[j];
+                        list1[j] = aux;
+                    }
+                }
+            }
+            Console.WriteLine("sorted list is: ");
+            for(int i=0; i< n ; i++)
+            {
+                if (i == n - 1)
+                {
+                    Console.Write(list1[i] +".");
+                }else 
+                Console.Write(list1[i]+", ");
+            }
+
+
+			// INSERTION Sort(compara un element strict cu urmatorul)
+			
+			for (int i = 1; i < list1.Count; i++)
+            {
+                for (int j = i; j < list1.Count; j++)
+                {
+                    while (j > 0 && list1[j - 1] > list1[j])
+                    {
+                        int aux = list1[j];
+                        list1[j] = list1[j - 1];
+                        list1[j - 1] = aux;
+                        j = j - 1;
+                    }
+                }
+            }
+			
+			
+			// SELECTION Sort (compara un element cu toate celelalte de dupa el)
+			
+            Console.WriteLine("Input the array's length: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Input an array of integer numbers: ");
+            int[] myArray6 = new int[n];
+
+            for (int i = 0; i < myArray6.Length; i++)
+            {
+                int numbers6 = Convert.ToInt32(Console.ReadLine());
+                myArray6[i] = numbers6;
+            }
+            for (int i = 0; i < myArray6.Length-1; i++) 
+            { 
+                int min = i;
+                for(int j = i + 1; j < myArray6.Length; j++)
+                {
+                    if (myArray6[j] < myArray6[min])
+                    {
+                        min = j;
+                    }
+                }
+                int aux = myArray6[min];
+                myArray6[min] = myArray6[i];
+                myArray6[i] = aux;
+            }
+            for (int i = 0; i < myArray6.Length; i++)
+            {
+                if (i == myArray6.Length - 1)
+                {
+                    Console.Write(myArray6[i] + ".");
+
+                }
+                else if (myArray6[i] != 0)
+                {
+                    Console.Write(myArray6[i] + ", ");
+                }
+            }
+			
+			
+			// MERGE Sort 
+			//(imparte structa in jumatate, jumatatile iar in jumate pana individualizeaza structura.
+			// ulterior le imbina in perechi si compara fiecare element din pereche.
+			// imbina perechile, comparand element cu element.
+			// imbina structurile ramase, comparand element cu element.
+			
+			
+			// HEAP Sort
+			
+			
+			// QUICK Sort (cu pivot)
