@@ -77,8 +77,8 @@ Student jane = new Student("Jane", "Smith", 654321, 3.6);
 myUniversity.AddStudent(john);
 myUniversity.AddStudent(jane);
 
-Faculty mary = new Faculty("Mary", "Jones", 111111, "Math");
-Faculty bob = new Faculty("Bob", "Smith", 222222, "History");
+Faculty mary = new Faculty("Mary", "Jones", 111111, new List<string> { "Math", "Physics" });
+Faculty bob = new Faculty("Bob", "Smith", 222222, new List<string> { "History", "English" });
 
 myUniversity.AddFaculty(mary);
 myUniversity.AddFaculty(bob);
