@@ -1,5 +1,7 @@
 ﻿using FreeExerciseOOP;
 using System;
+using System.Diagnostics.Metrics;
+using static System.Formats.Asn1.AsnWriter;
 //using FreeExerciseOOP.Exercise1;
 //using FreeExerciseOOP.Exercise2;
 //using FreeExerciseOOP.Exercise3;
@@ -7,6 +9,9 @@ using System;
 //using FreeExerciseOOP.Exercise5;
 //using FreeExerciseOOP.Exercise6;
 //using FreeExerciseOOP.Exercise7;
+//using FreeExerciseOOP.Exercise8;
+//using FreeExerciseOOP.Exercise9;
+
 
 
 /* Exercise 1
@@ -156,3 +161,40 @@ Console.Write("Insert dog name: ");
 firstDog.SetName(Console.ReadLine());
 Console.WriteLine("Dog's name is: " + firstDog.GetName());
 firstDog.Eat();*/
+
+
+//Exercise 8 
+/*Create a class to store details of student like rollno, name, course joined and fee paid so far. 
+Assume courses are C# and ASP.NET with course fees being 2000 and 3000.
+*/
+
+/*Student sorin = new Student(1, "Sorin", "c#");
+sorin.Print();
+Console.WriteLine(sorin.DueAmount);
+sorin.Payment(200);
+Console.WriteLine(sorin.DueAmount);*/
+
+/*Add a static member to store Service Tax, which is set to 12.3%. 
+Also allow a property through which we can set and get service tax.
+Modify TotalFee and DueAmount properties to consider service tax.*/
+
+/*Student marian = new Student(2, "Marian", "asp.net");
+marian.Payment(1000);
+marian.Print();
+Console.WriteLine(marian.DueAmount);*/
+
+//Exercise 9
+
+/*Create the classes required to store data regarding different types of Courses. 
+All courses have name, duration and course fee. 
+Some courses are part time where you have to store the timing for course. 
+Some courses are onsite where you have to store the company name and the no. of candidates for the course. 
+For onsite course we charge 10% more on the course fee. For part-time course, we offer 10% discount.*/
+
+CourseOnSite firstCourse = new CourseOnSite("ASP.NET", 30, 5000, "Wantsome", 10);
+firstCourse.Print();
+Console.WriteLine(firstCourse.GetTotalFee());
+
+CoursePartTime secondCourse = new CoursePartTime("C#", 30, 3000, "7-8pm");
+secondCourse.Print();
+Console.WriteLine(secondCourse.GetTotalFee());
