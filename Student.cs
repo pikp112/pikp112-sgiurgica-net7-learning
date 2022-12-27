@@ -15,6 +15,12 @@
             _GPA = GPA;
         }
 
+        public Student()
+        {
+            _firstName = "First Name";
+            _lastName = "Last Name";
+        }
+
         public string GetFullName()
         {
             return _firstName + " " + _lastName;

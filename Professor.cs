@@ -6,7 +6,7 @@
         //public string _faculity;
         public College _faculity;
         public string _specialization;
-        public List<string> _studentsWhoGiveTheirDegree = new List<string>();
+        public List<Student> _studentsWhoGiveTheirDegree = new List<Student>();
         public StudentCollege _student;
 
         public Professor(string name, College faculity, string specialization)
@@ -16,7 +16,7 @@
             _specialization = specialization;
         }
 
-        public Professor(string name, College faculity, string specialization, string studentsWhoGiveTheirDegree)
+        public Professor(string name, College faculity, string specialization, Student studentsWhoGiveTheirDegree)
         {
             _name=name;
             if (_faculity._name!=name && _faculity._name!=_student._name)
@@ -29,11 +29,8 @@
 
         public void AddStudent()
         {
-            Console.Write("Insert student's name: ");
-            _student._name = Console.ReadLine();
-            Console.WriteLine();
-
-            _studentsWhoGiveTheirDegree.Add(_student._name);
+            Student student = new Student();s
+            _studentsWhoGiveTheirDegree.Add(student);
         }
 
     }
