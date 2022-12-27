@@ -23,10 +23,7 @@
 
         public void GetSubjectsTaught()
         {
-            foreach(string elem in _subjectsTaught)
-            {
-                Console.WriteLine(elem);
-            }
+            return _subjectsTaught;
         }
 
 
