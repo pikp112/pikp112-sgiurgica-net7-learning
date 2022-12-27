@@ -30,19 +30,16 @@
         public string SetTitle(string title)
         {
             this.title = title;
-            return title;
         }
 
         public string SetAuthor(string author)
         {
             this.author = author;
-            return author;
         }
 
         public int SetYear(int year)
         {
             this.year = year;
-            return year;
         }
     }
 }
