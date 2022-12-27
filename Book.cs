@@ -20,7 +20,6 @@
         public string GetAuthor()
         {
             return author;
-            Console.WriteLine($"The book's author is {this.author}.");
         }
 
         public int GetYear()
