@@ -25,7 +25,6 @@
         public int GetYear()
         {
             return year;
-            Console.WriteLine($"The year the book was published is {this.year}.");
         }
 
         public string SetTitle(string title)
