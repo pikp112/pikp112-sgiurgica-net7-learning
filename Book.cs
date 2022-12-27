@@ -16,7 +16,6 @@
         public string GetTitle()
         {
             return title;
-            Console.WriteLine($"The book's title is {this.title}.");
         }
         public string GetAuthor()
         {
