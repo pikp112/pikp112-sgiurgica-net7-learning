@@ -1,3 +1,5 @@
+﻿using System;
+using Week5_OOP_Advanced;
 //using Week5_OOP_Advanced.Week5_day1;
 //using Week5_OOP_Advanced.Week5_day2;
 //using Week5_OOP_Advanced.HomeworkWeek5_OOP_Advanced.Ex_3;
