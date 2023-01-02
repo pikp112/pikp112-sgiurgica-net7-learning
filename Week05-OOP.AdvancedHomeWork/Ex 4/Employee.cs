@@ -3,20 +3,21 @@
     public abstract class Employee
     {
         private string _email;
-
         private int _phone;
         public string Name { get; set; }
         public int Age { get; set; }
         public double Salary { get; set; }
         public string Email
         {
-            get {
+            get
+            {
                 //First we need to split the Name in 2 parts:
                 string _firstName = Name.Substring(0, Name.IndexOf(" ")); //define firstName
                 string _lastName = Name.Substring(Name.IndexOf(" ") + 1); //define lastName
 
                 _email=$"{_firstName.ToLower()}.{_lastName[0]}";         //auto-create email by the output
-                return _email; }
+                return _email;
+            }
             set
             {
                 if (value.Contains("@")&&value.Contains("."))

@@ -1,4 +1,4 @@
-﻿namespace Week5_OOP_Advanced.HomeworkWeek5_OOP_Advanced.Ex_3
+﻿namespace Week5_OOP_Advanced
 {
     sealed class Rectangle : Shape
     {

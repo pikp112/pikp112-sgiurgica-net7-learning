@@ -12,7 +12,6 @@
             {
                 return _currentPage;
             }
-
             set
             {
                 _currentPage = value;
@@ -54,6 +53,5 @@
         {
             return CurrentPage--;
         }
-
     }
 }

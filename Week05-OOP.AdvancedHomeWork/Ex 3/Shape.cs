@@ -1,4 +1,4 @@
-﻿namespace Week5_OOP_Advanced.HomeworkWeek5_OOP_Advanced.Ex_3
+﻿namespace Week5_OOP_Advanced
 {
     public abstract class Shape
     {
@@ -10,6 +10,5 @@
         {
             return Perimeter;
         }
-
     }
 }

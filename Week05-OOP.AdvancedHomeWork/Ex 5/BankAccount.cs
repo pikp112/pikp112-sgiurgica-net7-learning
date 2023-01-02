@@ -1,7 +1,7 @@
 ﻿using System.Security.Principal;
 using System.Xml.Linq;
 
-namespace Week5_OOP_Advanced.HomeworkWeek5_OOP_Advanced.Ex2
+namespace Week5_OOP_Advanced
 {
     public class BankAccount
     {
