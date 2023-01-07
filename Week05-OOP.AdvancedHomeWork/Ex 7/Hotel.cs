@@ -1,4 +1,4 @@
-﻿namespace Week5_OOP_Advanced
+﻿namespace Week5_OOP_Advanced.HomeworkWeek5_OOP_Advanced.Ex_7
 {
     public class Hotel : AccommodationUnitDetails, IRooms, IProgram
     {
@@ -15,14 +15,27 @@
         public int? NumberOfEmplyees
         {
             get { return _noOfEmployees; }
-            protected set
+            internal set
             {
-                if (value<=0)
+                try
+                {
+                    if (value>1)
+                    {
+                        _noOfEmployees = value;
+                    }
+                }
+                catch(NegativeOrZeroEmployeeException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    Console.WriteLine("You need to have at least 1 employee.");
+
+                }
+/*                if (value<=0)
                 {
                     throw new Exception("This unit can't have 0 or negative employees.");
                 }
                 else _noOfEmployees=value;
-            }
+*/            }
         }
         //Unit rooms details
         public int NumberOfSingleRooms          //for 1 person
@@ -101,6 +114,18 @@
             CheckOutTime = setCheckOut;
         }
         //Room prices
+        public int GetPriceSingleRoom()
+        {
+            return _priceSingleRoom;
+        }
+        public int GetPriceDoubleRoom()
+        {
+            return _priceDoubleRoom;
+        }
+        public int GetPriceApartment()
+        {
+            return _priceApartment;
+        }
         public void SetPriceSingleRoom(int price)
         {
             if (price <= 0)
@@ -137,14 +162,14 @@
             return _totalNumberOfAccommodationRooms;
         }
         //full address
-        public override string GetFullAddressUnit()         //dynamic polymorphism - method override
-        {
+/*        public override string GetFullAddressUnit()         //dynamic polymorphism - method override
+        {                                                     //is not defineted like abstract method in the abstract class
             return $"{City}, {Street}, nr.{StreetNumber}";
         }
-
-        public static void GetFullAddressUnit(Hotel hotel)     //static polymorphism - method overload
+*/
+        public static string GetFullAddressUnit(Hotel hotel)     //static polymorphism - method overload
         {
-            Console.WriteLine($"Hotel {hotel.NameUnit} address is: {hotel.GetFullAddressUnit()}.");
+            return $"Hotel {hotel.NameUnit}, ID: {hotel.IdUnit} and address is: {hotel.GetFullAddressUnit()}.";
         }
         //Add/Remove employee
         public override void AddEmployee(int addNumber)      //dynamic polymorphism - method override

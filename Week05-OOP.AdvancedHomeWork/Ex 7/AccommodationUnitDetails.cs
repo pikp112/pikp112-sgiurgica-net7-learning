@@ -1,4 +1,4 @@
-﻿namespace Week5_OOP_Advanced
+﻿namespace Week5_OOP_Advanced.HomeworkWeek5_OOP_Advanced.Ex_7
 {
     public abstract class AccommodationUnitDetails
     {
@@ -6,8 +6,8 @@
         private string _street;
         private int _streetNumber;
         //Unit details properties
-        public string NameUnit { get; protected set; }
-        public int IdUnit { get; protected set; }
+        public string NameUnit { get; internal set; }
+        public int IdUnit { get; internal set; }
         public int NumberOfEmplyees { get; protected set; }
         //Unit address properties
         public Cities City { get; set; }
@@ -42,7 +42,11 @@
             }
         }
         //Methods
-        public abstract string GetFullAddressUnit();
+        public string GetFullAddressUnit()
+        {
+            return $"{City}, {Street}, nr.{StreetNumber}";
+
+        }
         public abstract int TotalNumberOfAccommodationRooms();
         public abstract int NumberOfPeopleWhoCanBeAccommodated();
         public abstract void AddEmployee(int addNumber);

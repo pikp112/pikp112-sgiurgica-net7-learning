@@ -1,8 +1,8 @@
-﻿namespace Week5_OOP_Advanced
+﻿namespace Week5_OOP_Advanced.HomeworkWeek5_OOP_Advanced.Ex_7
 {
     public enum Cities
     {
-        Bucuresti,
+        Bucuresti = 1,  
         Craiova,
         Iasi,
         Botosani,

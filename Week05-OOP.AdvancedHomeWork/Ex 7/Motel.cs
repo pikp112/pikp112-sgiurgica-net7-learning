@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace Week5_OOP_Advanced
+namespace Week5_OOP_Advanced.HomeworkWeek5_OOP_Advanced.Ex_7
 {
     sealed class Motel : AccommodationUnitDetails, IRooms, IProgram
     {
@@ -102,6 +102,19 @@ namespace Week5_OOP_Advanced
             CheckOutTime = setCheckOut;
         }
         //Price rooms
+        public int GetPriceSingleRoom()
+        {
+            return _priceSingleRoom;
+        }
+        public int GetPriceDoubleRoom()
+        {
+            return _priceDoubleRoom;
+        }
+        public int GetPriceApartment()
+        {
+            return _priceApartment;
+        }
+
         public void SetPriceSingleRoom(int price)
         {
             if (price <= 0)
@@ -138,11 +151,11 @@ namespace Week5_OOP_Advanced
             return _totalNumberOfAccommodationRooms;
         }
         //Full address
-        public override string GetFullAddressUnit()         //dynamic polymorphism - method override
-        {
+/*        public override string GetFullAddressUnit()         //dynamic polymorphism - method override
+        {                                                     //is not defineted like abstract method in the abstract class
             return $"{City}, {Street}, nr.{StreetNumber}";
         }
-
+*/
         public static void GetFullAddressUnit(Motel motel)     //static polymorphism - method overload
         {
             Console.WriteLine($"Motel {motel.NameUnit} address is: {motel.GetFullAddressUnit()}.");

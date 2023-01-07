@@ -2,10 +2,10 @@
 {
     public static class NumberIdUnitGenerator
     {
-        private static int _idUnitGenerator = 1;
+        private static int _idUnitGenerator = 543462;
         public static int AutoGenerateIdUnit()
         {
-            return _idUnitGenerator++;
+            return _idUnitGenerator+42;             //random number unit
         }
     }
 }
