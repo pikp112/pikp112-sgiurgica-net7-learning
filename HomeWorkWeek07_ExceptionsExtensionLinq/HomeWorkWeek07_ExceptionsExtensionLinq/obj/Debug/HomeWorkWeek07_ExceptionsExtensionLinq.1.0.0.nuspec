@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>HomeWorkWeek07_ExceptionsExtensionLinq</id>
+    <version>1.0.0</version>
+    <authors>HomeWorkWeek07_ExceptionsExtensionLinq</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net6.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\sorin\source\repos\Week07Exceptions-Extension\HomeWorkWeek07_ExceptionsExtensionLinq\HomeWorkWeek07_ExceptionsExtensionLinq\bin\Debug\net6.0\HomeWorkWeek07_ExceptionsExtensionLinq.runtimeconfig.json" target="lib\net6.0\HomeWorkWeek07_ExceptionsExtensionLinq.runtimeconfig.json" />
+    <file src="C:\Users\sorin\source\repos\Week07Exceptions-Extension\HomeWorkWeek07_ExceptionsExtensionLinq\HomeWorkWeek07_ExceptionsExtensionLinq\bin\Debug\net6.0\HomeWorkWeek07_ExceptionsExtensionLinq.dll" target="lib\net6.0\HomeWorkWeek07_ExceptionsExtensionLinq.dll" />
+  </files>
+</package>
