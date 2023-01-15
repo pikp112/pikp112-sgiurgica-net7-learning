@@ -34,6 +34,7 @@ namespace HomeWorkWeek07_ExceptionsExtensionLinq.Ex4
                 using (StreamWriter newFile = new StreamWriter(@"Desktop"))
                 {
                     string inputString = Console.ReadLine();
+                    newFile.WriteLine(inputString);
                 }
             }
         }
@@ -45,7 +46,7 @@ namespace HomeWorkWeek07_ExceptionsExtensionLinq.Ex4
             {
                 Console.WriteLine($"The file {infoPath.Name} is empty. Insert some text to write into the file:");
                 string inputString = Console.ReadLine();
-                File.WriteAllText(infoPath.FullName, inputString);
+                File.AppendAllText(infoPath.FullName, inputString);
             }
             else
             {
