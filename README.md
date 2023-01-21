@@ -1,1 +1,0 @@
-# pikp112-sgiurgica-net7-learning
