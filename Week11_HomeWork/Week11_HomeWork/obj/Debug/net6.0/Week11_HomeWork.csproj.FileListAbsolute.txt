@@ -1,0 +1,15 @@
+E:\proiecte github\Wantsome\Week09\Week11_HomeWork\Week11_HomeWork\bin\Debug\net6.0\Week11_HomeWork.exe
+E:\proiecte github\Wantsome\Week09\Week11_HomeWork\Week11_HomeWork\bin\Debug\net6.0\Week11_HomeWork.deps.json
+E:\proiecte github\Wantsome\Week09\Week11_HomeWork\Week11_HomeWork\bin\Debug\net6.0\Week11_HomeWork.runtimeconfig.json
+E:\proiecte github\Wantsome\Week09\Week11_HomeWork\Week11_HomeWork\bin\Debug\net6.0\Week11_HomeWork.dll
+E:\proiecte github\Wantsome\Week09\Week11_HomeWork\Week11_HomeWork\bin\Debug\net6.0\Week11_HomeWork.pdb
+E:\proiecte github\Wantsome\Week09\Week11_HomeWork\Week11_HomeWork\obj\Debug\net6.0\Week11_HomeWork.csproj.AssemblyReference.cache
+E:\proiecte github\Wantsome\Week09\Week11_HomeWork\Week11_HomeWork\obj\Debug\net6.0\Week11_HomeWork.GeneratedMSBuildEditorConfig.editorconfig
+E:\proiecte github\Wantsome\Week09\Week11_HomeWork\Week11_HomeWork\obj\Debug\net6.0\Week11_HomeWork.AssemblyInfoInputs.cache
+E:\proiecte github\Wantsome\Week09\Week11_HomeWork\Week11_HomeWork\obj\Debug\net6.0\Week11_HomeWork.AssemblyInfo.cs
+E:\proiecte github\Wantsome\Week09\Week11_HomeWork\Week11_HomeWork\obj\Debug\net6.0\Week11_HomeWork.csproj.CoreCompileInputs.cache
+E:\proiecte github\Wantsome\Week09\Week11_HomeWork\Week11_HomeWork\obj\Debug\net6.0\Week11_HomeWork.dll
+E:\proiecte github\Wantsome\Week09\Week11_HomeWork\Week11_HomeWork\obj\Debug\net6.0\refint\Week11_HomeWork.dll
+E:\proiecte github\Wantsome\Week09\Week11_HomeWork\Week11_HomeWork\obj\Debug\net6.0\Week11_HomeWork.pdb
+E:\proiecte github\Wantsome\Week09\Week11_HomeWork\Week11_HomeWork\obj\Debug\net6.0\Week11_HomeWork.genruntimeconfig.cache
+E:\proiecte github\Wantsome\Week09\Week11_HomeWork\Week11_HomeWork\obj\Debug\net6.0\ref\Week11_HomeWork.dll
