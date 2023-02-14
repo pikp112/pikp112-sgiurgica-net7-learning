@@ -1,0 +1,15 @@
+E:\proiecte github\Wantsome Project\WhiteDentalClinic\WhiteDentalClinic.Application\bin\Debug\net6.0\WhiteDentalClinic.Application.deps.json
+E:\proiecte github\Wantsome Project\WhiteDentalClinic\WhiteDentalClinic.Application\bin\Debug\net6.0\WhiteDentalClinic.Application.dll
+E:\proiecte github\Wantsome Project\WhiteDentalClinic\WhiteDentalClinic.Application\bin\Debug\net6.0\WhiteDentalClinic.Application.pdb
+E:\proiecte github\Wantsome Project\WhiteDentalClinic\WhiteDentalClinic.Application\bin\Debug\net6.0\WhiteDentalClinic.DataAccess.dll
+E:\proiecte github\Wantsome Project\WhiteDentalClinic\WhiteDentalClinic.Application\bin\Debug\net6.0\WhiteDentalClinic.DataAccess.pdb
+E:\proiecte github\Wantsome Project\WhiteDentalClinic\WhiteDentalClinic.Application\obj\Debug\net6.0\WhiteDentalClinic.Application.csproj.AssemblyReference.cache
+E:\proiecte github\Wantsome Project\WhiteDentalClinic\WhiteDentalClinic.Application\obj\Debug\net6.0\WhiteDentalClinic.Application.GeneratedMSBuildEditorConfig.editorconfig
+E:\proiecte github\Wantsome Project\WhiteDentalClinic\WhiteDentalClinic.Application\obj\Debug\net6.0\WhiteDentalClinic.Application.AssemblyInfoInputs.cache
+E:\proiecte github\Wantsome Project\WhiteDentalClinic\WhiteDentalClinic.Application\obj\Debug\net6.0\WhiteDentalClinic.Application.AssemblyInfo.cs
+E:\proiecte github\Wantsome Project\WhiteDentalClinic\WhiteDentalClinic.Application\obj\Debug\net6.0\WhiteDentalClinic.Application.csproj.CoreCompileInputs.cache
+E:\proiecte github\Wantsome Project\WhiteDentalClinic\WhiteDentalClinic.Application\obj\Debug\net6.0\WhiteDentalClinic.Application.csproj.CopyComplete
+E:\proiecte github\Wantsome Project\WhiteDentalClinic\WhiteDentalClinic.Application\obj\Debug\net6.0\WhiteDentalClinic.Application.dll
+E:\proiecte github\Wantsome Project\WhiteDentalClinic\WhiteDentalClinic.Application\obj\Debug\net6.0\refint\WhiteDentalClinic.Application.dll
+E:\proiecte github\Wantsome Project\WhiteDentalClinic\WhiteDentalClinic.Application\obj\Debug\net6.0\WhiteDentalClinic.Application.pdb
+E:\proiecte github\Wantsome Project\WhiteDentalClinic\WhiteDentalClinic.Application\obj\Debug\net6.0\ref\WhiteDentalClinic.Application.dll
