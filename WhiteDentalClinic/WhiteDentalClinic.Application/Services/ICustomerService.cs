@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WhiteDentalClinic.Api.Controllers;
+﻿using WhiteDentalClinic.Api.Controllers;
 using WhiteDentalClinic.Application.Models;
 
 namespace WhiteDentalClinic.Application.Services
@@ -13,5 +8,6 @@ namespace WhiteDentalClinic.Application.Services
         List<CustomerResponseModel> GetAllCustomers();
         CustomerResponseModel GetCustomerById(Guid id);
         CustomerResponseModel CreateCustomer(CreateCustomerRequestModel requestCustomerModel);
+        CustomerResponseModel DeleteCustomer(Guid id);
     }
 }

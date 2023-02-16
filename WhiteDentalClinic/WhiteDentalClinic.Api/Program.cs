@@ -12,8 +12,9 @@ builder.Services.AddSwaggerGen();
 
 // Add dependecy injection
 builder.Services.AddScoped<ICustomerService, CustomerService>();
-builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
-
+//builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+//builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+ 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

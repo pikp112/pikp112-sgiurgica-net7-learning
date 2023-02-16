@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Identity.Client.Extensions.Msal;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using WhiteDentalClinic.Application.Services;
-using WhiteDentalClinic.DataAccess.Entities;
-using WhiteDentalClinic.DataAccess.Repositories;
+using WhiteDentalClinic.DataAccess.Entities.Dentist;
 
 namespace WhiteDentalClinic.Api.Controllers
 {
@@ -21,10 +18,11 @@ namespace WhiteDentalClinic.Api.Controllers
         [HttpGet]  
         public ActionResult<List<Dentist>> GetAllCustomers()
         {
-            return Ok(_customerService.GetAllCustomers());
+            //poti face o clasa generica de return
+            return Ok(_customerService.GetAllCustomers()); // ApiResponseModel<List<Dentist>>
         }
 
-        [HttpGet("{id}")]  // /customers/{id}
+        [HttpGet("{id}")]
         public IActionResult GetCustomerById(Guid id)
         {
             return Ok(_customerService.GetCustomerById(id));
@@ -39,85 +37,21 @@ namespace WhiteDentalClinic.Api.Controllers
             }
             catch (ValidationException ex)
             {
-                return BadRequest(ex.Message);   //ex. daca utilizatorul incarca un CSV, arunci exceptie. Asta e o validare! Trebuie in Api Layer
+                return BadRequest(ex.Message); 
             }
         }
 
-
-        // GET: CustomersController
-        /*        public ActionResult Index()
-                {
-                    return View();
-                }
-
-                // GET: CustomersController/Details/5
-                public ActionResult Details(int id)
-                {
-                    return View();
-                }
-
-                // GET: CustomersController/Create
-                public ActionResult Create()
-                {
-                    return View();
-                }
-
-                // POST: CustomersController/Create
-                [HttpPost]
-                [ValidateAntiForgeryToken]
-                public ActionResult Create(IFormCollection collection)
-                {
-                    try
-                    {
-                        return RedirectToAction(nameof(Index));
-                    }
-                    catch
-                    {
-                        return View();
-                    }
-                }
-
-                // GET: CustomersController/Edit/5
-                public ActionResult Edit(int id)
-                {
-                    return View();
-                }
-
-                // POST: CustomersController/Edit/5
-                [HttpPost]
-                [ValidateAntiForgeryToken]
-                public ActionResult Edit(int id, IFormCollection collection)
-                {
-                    try
-                    {
-                        return RedirectToAction(nameof(Index));
-                    }
-                    catch
-                    {
-                        return View();
-                    }
-                }
-
-                // GET: CustomersController/Delete/5
-                public ActionResult Delete(int id)
-                {
-                    return View();
-                }
-
-                // POST: CustomersController/Delete/5
-                [HttpPost]
-                [ValidateAntiForgeryToken]
-                public ActionResult Delete(int id, IFormCollection collection)
-                {
-                    try
-                    {
-                        return RedirectToAction(nameof(Index));
-                    }
-                    catch
-                    {
-                        return View();
-                    }
-                }
-        */
+        [HttpDelete]
+        public IActionResult DeleteCustomer(Guid id)
+        {
+            try
+            {
+                return Ok(_customerService.DeleteCustomer(id));
+            }
+            catch(ValidationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

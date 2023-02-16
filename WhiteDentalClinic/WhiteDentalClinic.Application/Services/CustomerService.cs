@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WhiteDentalClinic.Api.Controllers;
+﻿using WhiteDentalClinic.Api.Controllers;
 using WhiteDentalClinic.Application.Models;
-using WhiteDentalClinic.DataAccess;
 using WhiteDentalClinic.DataAccess.Entities;
+using WhiteDentalClinic.DataAccess.Entities.Custoner;
 using WhiteDentalClinic.DataAccess.Repositories;
 
 namespace WhiteDentalClinic.Application.Services
@@ -18,10 +13,50 @@ namespace WhiteDentalClinic.Application.Services
         {
             _customerRepository = customerRepository;
         }
-        public List<CustomerResponseModel> GetAllCustomers() => _customerRepository.GetCustomers();
-        public CustomerResponseModel CreateCustomer(CreateCustomerRequestModel requestCustomerModel) => _customerRepository.CreateCustomer(requestCustomerModel);
-        public CustomerResponseModel GetCustomerById(Guid id) => _customerRepository.GetCustomerById(id);
+        //poti face o clasa generica de return
+        public List<CustomerResponseModel> GetAllCustomers()
+        {
+            var responseModelListCustomers = _customerRepository.GetAll().Select(x => new CustomerResponseModel
+            {
+                Id= x.Id,
+                FirstName= x.FirstName,
+                LastName= x.LastName, 
+                Age= x.Age,
+                Email = x.Email
+            }).ToList();
 
+            return responseModelListCustomers;
+        }
+        public CustomerResponseModel CreateCustomer(CreateCustomerRequestModel requestCustomerModel)
+        {
+            var newCustomer = new Customer
+            {
+                Id= Guid.NewGuid(),
+                FirstName = requestCustomerModel.FirstName,
+                LastName = requestCustomerModel.LastName,
+                Age = requestCustomerModel.Age,
+                Email= requestCustomerModel.Email
+            };
+
+            var addCustomer = this._customerRepository.AddEntity(newCustomer);
+
+            return CustomerResponseModel.FromCustomer(newCustomer);
+            
+
+        }
+        public CustomerResponseModel GetCustomerById(Guid id)
+        {
+            var customerById = _customerRepository.GetAll().FirstOrDefault(x =>x.Id == id);
+            return CustomerResponseModel.FromCustomer(customerById);
+        }
+        public CustomerResponseModel DeleteCustomer(Guid id)
+        {
+            var customerById = _customerRepository.GetAll ().FirstOrDefault(x => x.Id == id);
+
+            _customerRepository.DeleteEntity(customerById);
+
+            return CustomerResponseModel.FromCustomer(customerById);
+        }
 
     }
 }

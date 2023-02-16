@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using WhiteDentalClinic.DataAccess.Entities;
+﻿using WhiteDentalClinic.DataAccess.Entities.Custoner;
 
 namespace WhiteDentalClinic.Application.Models
 {
@@ -23,3 +22,7 @@ namespace WhiteDentalClinic.Application.Models
         }
     }
 }
+
+
+// toate api sa recurneze o clasa generica  iSucceseful(true/false) ori, ori Errors[], Result [], comunca la tot ce returneaza
+ 

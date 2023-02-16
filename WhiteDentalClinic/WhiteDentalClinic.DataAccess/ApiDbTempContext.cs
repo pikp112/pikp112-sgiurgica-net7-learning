@@ -1,10 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WhiteDentalClinic.DataAccess.Entities;
+using System.Reflection;
+using WhiteDentalClinic.DataAccess.Entities.Custoner;
+using WhiteDentalClinic.DataAccess.Entities.Dentist;
 
 namespace WhiteDentalClinic.DataAccess
 {
@@ -14,6 +11,10 @@ namespace WhiteDentalClinic.DataAccess
        (DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseInMemoryDatabase(databaseName: "CustomerDb");
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Dentist> Dentists { get; set; }
