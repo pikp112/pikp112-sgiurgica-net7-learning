@@ -1,5 +1,4 @@
-﻿using WhiteDentalClinic.Api.Controllers;
-using WhiteDentalClinic.Application.Models;
+﻿using WhiteDentalClinic.Application.Models.Customer;
 
 namespace WhiteDentalClinic.Application.Services
 {

@@ -1,5 +1,4 @@
-﻿using WhiteDentalClinic.Api.Controllers;
-using WhiteDentalClinic.Application.Models;
+﻿using WhiteDentalClinic.Application.Models.Customer;
 using WhiteDentalClinic.DataAccess.Entities;
 using WhiteDentalClinic.DataAccess.Entities.Custoner;
 using WhiteDentalClinic.DataAccess.Repositories;

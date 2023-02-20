@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
+using WhiteDentalClinic.Application.Models;
+using WhiteDentalClinic.Application.Models.Customer;
 using WhiteDentalClinic.Application.Services;
 using WhiteDentalClinic.DataAccess.Entities.Dentist;
 
@@ -25,7 +27,7 @@ namespace WhiteDentalClinic.Api.Controllers
         [HttpGet("{id}")]
         public IActionResult GetCustomerById(Guid id)
         {
-            return Ok(_customerService.GetCustomerById(id));
+            return Ok(ApiGenericsResult<CustomerResponseModel>.Success(_customerService.GetCustomerById(id)));
         }
 
         [HttpPost]
@@ -33,11 +35,11 @@ namespace WhiteDentalClinic.Api.Controllers
         {
             try
             {
-                return Ok(_customerService.CreateCustomer(requestCustomerModel));
+                return Ok(ApiGenericsResult<CustomerResponseModel>.Success(_customerService.CreateCustomer(requestCustomerModel)));
             }
             catch (ValidationException ex)
             {
-                return BadRequest(ex.Message); 
+                return BadRequest(ApiGenericsResult<CustomerResponseModel>.Failure("You need to insert all required elements.")); 
             }
         }
 
@@ -46,11 +48,11 @@ namespace WhiteDentalClinic.Api.Controllers
         {
             try
             {
-                return Ok(_customerService.DeleteCustomer(id));
+                return Ok(ApiGenericsResult<CustomerResponseModel>.Success(_customerService.DeleteCustomer(id)));
             }
             catch(ValidationException ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(ApiGenericsResult<CustomerResponseModel>.Failure("You insert a wrong ID. Please, try again!"));
             }
         }
     }
