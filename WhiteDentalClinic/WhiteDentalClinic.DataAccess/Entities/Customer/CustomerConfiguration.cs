@@ -1,17 +1,16 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WhiteDentalClinic.DataAccess.Entities.Customer;
 
-namespace WhiteDentalClinic.DataAccess.Entities.Dentist
+namespace WhiteDentalClinic.DataAccess.Entities.Customer
 {
-    public class CustomerConfiguration : IEntityTypeConfiguration<Dentist>
+    public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
     {
-        public void Configure(EntityTypeBuilder<Dentist> builder)
+        public void Configure(EntityTypeBuilder<Customer> builder)
         {
             builder.HasKey(c => c.Id);
             builder.Property(c => c.FirstName)

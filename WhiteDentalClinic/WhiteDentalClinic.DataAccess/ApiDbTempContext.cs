@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Reflection;
-using WhiteDentalClinic.DataAccess.Entities.Custoner;
+using WhiteDentalClinic.DataAccess.Entities.Customer;
 using WhiteDentalClinic.DataAccess.Entities.Dentist;
 
 namespace WhiteDentalClinic.DataAccess

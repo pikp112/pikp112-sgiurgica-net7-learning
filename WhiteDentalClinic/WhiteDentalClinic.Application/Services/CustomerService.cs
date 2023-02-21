@@ -1,6 +1,6 @@
 ﻿using WhiteDentalClinic.Application.Models.Customer;
 using WhiteDentalClinic.DataAccess.Entities;
-using WhiteDentalClinic.DataAccess.Entities.Custoner;
+using WhiteDentalClinic.DataAccess.Entities.Customer;
 using WhiteDentalClinic.DataAccess.Repositories;
 
 namespace WhiteDentalClinic.Application.Services
