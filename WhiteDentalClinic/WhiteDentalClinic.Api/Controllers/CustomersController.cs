@@ -3,13 +3,10 @@ using System.ComponentModel.DataAnnotations;
 using WhiteDentalClinic.Application.Models;
 using WhiteDentalClinic.Application.Models.Customer;
 using WhiteDentalClinic.Application.Services;
-using WhiteDentalClinic.DataAccess.Entities.Dentist;
 
 namespace WhiteDentalClinic.Api.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class CustomersController : Controller
+    public class CustomersController : ApiController
     {
         readonly ICustomerService _customerService;
         public CustomersController(ICustomerService customerService)
@@ -18,13 +15,12 @@ namespace WhiteDentalClinic.Api.Controllers
         }
 
         [HttpGet]  
-        public ActionResult<List<Dentist>> GetAllCustomers()
+        public ActionResult<IEnumerable<CustomerResponseModel>> GetAllCustomers()
         {
-            //poti face o clasa generica de return
-            return Ok(_customerService.GetAllCustomers()); // ApiResponseModel<List<Dentist>>
+            return Ok(ApiGenericsResult<IEnumerable<CustomerResponseModel>>.Success(_customerService.GetAllCustomers()));
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:guid}")]
         public IActionResult GetCustomerById(Guid id)
         {
             return Ok(ApiGenericsResult<CustomerResponseModel>.Success(_customerService.GetCustomerById(id)));
@@ -39,7 +35,7 @@ namespace WhiteDentalClinic.Api.Controllers
             }
             catch (ValidationException ex)
             {
-                return BadRequest(ApiGenericsResult<CustomerResponseModel>.Failure("You need to insert all required elements.")); 
+                return BadRequest(ApiGenericsResult<CustomerResponseModel>.Failure(new[] { "You need to insert all required elements." })); 
             }
         }
 
@@ -52,7 +48,7 @@ namespace WhiteDentalClinic.Api.Controllers
             }
             catch(ValidationException ex)
             {
-                return BadRequest(ApiGenericsResult<CustomerResponseModel>.Failure("You insert a wrong ID. Please, try again!"));
+                return BadRequest(ApiGenericsResult<CustomerResponseModel>.Failure(new[] { "You insert a wrong ID. Please, try again!" }));
             }
         }
     }

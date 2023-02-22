@@ -1,16 +1,18 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using WhiteDentalClinic.DataAccess.Entities.DentistEntity;
 
-namespace WhiteDentalClinic.Application.Models.Customer
+namespace WhiteDentalClinic.DataAccess.Entities.Dentist
 {
-    public class CreateCustomerRequestModel
+    public class Dentist : BaseDentist
     {
         public Guid Id { get; set; }
         [MinLength(2)]
         public string FirstName { get; set; }
         [MinLength(2)]
         public string LastName { get; set; }
-        [MinLength(2)]
+        [Range(16, 120)]
         public int Age { get; set; }
         public string Email { get; set; }
+
     }
 }

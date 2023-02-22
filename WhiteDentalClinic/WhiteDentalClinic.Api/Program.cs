@@ -1,3 +1,4 @@
+using WhiteDentalClinic.Application.MappingProfiles;
 using WhiteDentalClinic.Application.Services;
 using WhiteDentalClinic.DataAccess.Repositories;
 
@@ -11,10 +12,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Add dependecy injection
-builder.Services.AddScoped<ICustomerService, CustomerService>();
+//builder.Services.AddScoped<ICustomerService, CustomerService>();
 //builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
-//builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
- 
+builder.Services.AddAutoMapper(typeof(CustomerProfile));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -5,8 +5,7 @@ namespace WhiteDentalClinic.DataAccess.Repositories
     public class CustomerRepository : BaseRepository<Customer>,ICustomerRepository  
     {
         protected CustomerRepository(ApiDbTempContext context) : base(context)
-        {
-        }
+        { }
 
        /* public List<Customer> GetCustomers()
         {
