@@ -1,17 +1,22 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using WhiteDentalClinic.DataAccess.Entities.DentistEntity;
+using WhiteDentalClinic.DataAccess.Entities.CommonEntities;
 
-namespace WhiteDentalClinic.DataAccess.Entities.Dentist
+namespace WhiteDentalClinic.DataAccess.Entities.DentistEntity
 {
-    public class Dentist : BaseDentist
+    public class Dentist : BaseEntity
     {
+        public Dentist()
+        {
+            CreatedAt = DateTime.Now;
+        }
         public Guid Id { get; set; }
-        [MinLength(2)]
         public string FirstName { get; set; }
-        [MinLength(2)]
         public string LastName { get; set; }
-        [Range(16, 120)]
         public int Age { get; set; }
         public string Email { get; set; }
+        public override Role Role => Role.Dentist;
+        public DateTime CreatedAt { get; set; }
+
+        public List<CustomerDentist> Customers { get; set; }
     }
 }

@@ -7,6 +7,7 @@ namespace WhiteDentalClinic.Application.Services
         IEnumerable<CustomerResponseModel> GetAllCustomers();
         CustomerResponseModel GetCustomerById(Guid id);
         CustomerResponseModel CreateCustomer(CreateCustomerRequestModel requestCustomerModel);
+        UpdateCustomerResponseModel UpdateCustomer(Guid id, UpdateCustomerRequestModel updateCustomerModel);
         CustomerResponseModel DeleteCustomer(Guid id);
     }
 }

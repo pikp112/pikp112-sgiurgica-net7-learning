@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WhiteDentalClinic.Application.Models.Customer
+namespace WhiteDentalClinic.Application.Models.Dentist
 {
-    public class CreateCustomerRequestModel
+    public class DentistResponseModel
     {
         public Guid Id { get; set; }
         [MinLength(2)]
@@ -11,5 +11,6 @@ namespace WhiteDentalClinic.Application.Models.Customer
         public string LastName { get; set; }
         public int Age { get; set; }
         public string Email { get; set; }
+
     }
 }

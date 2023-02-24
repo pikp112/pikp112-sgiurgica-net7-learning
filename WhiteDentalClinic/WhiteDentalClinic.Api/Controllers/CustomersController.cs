@@ -14,6 +14,7 @@ namespace WhiteDentalClinic.Api.Controllers
             _customerService = customerService;
         }
 
+        //need to check status response
         [HttpGet]  
         public ActionResult<IEnumerable<CustomerResponseModel>> GetAllCustomers()
         {
@@ -24,6 +25,7 @@ namespace WhiteDentalClinic.Api.Controllers
         public IActionResult GetCustomerById(Guid id)
         {
             return Ok(ApiGenericsResult<CustomerResponseModel>.Success(_customerService.GetCustomerById(id)));
+            // to do BadRequest
         }
 
         [HttpPost]
@@ -33,9 +35,21 @@ namespace WhiteDentalClinic.Api.Controllers
             {
                 return Ok(ApiGenericsResult<CustomerResponseModel>.Success(_customerService.CreateCustomer(requestCustomerModel)));
             }
-            catch (ValidationException ex)
+            catch(Exception ex)
             {
-                return BadRequest(ApiGenericsResult<CustomerResponseModel>.Failure(new[] { "You need to insert all required elements." })); 
+                return BadRequest(ApiGenericsResult<CustomerResponseModel>.Failure(new[] {$"{ex.Message}"})); 
+            }
+        }
+        [HttpPut("{id:guid}")]
+        public IActionResult UpdateCustomer(Guid id, UpdateCustomerRequestModel updateCustomerModel)
+        {
+            try
+            {
+                return Ok(ApiGenericsResult<UpdateCustomerResponseModel>.Success(_customerService.UpdateCustomer(id, updateCustomerModel)));
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ApiGenericsResult<UpdateCustomerResponseModel>.Failure(new[] { $"{ex.Message}" }));
             }
         }
 
@@ -46,9 +60,9 @@ namespace WhiteDentalClinic.Api.Controllers
             {
                 return Ok(ApiGenericsResult<CustomerResponseModel>.Success(_customerService.DeleteCustomer(id)));
             }
-            catch(ValidationException ex)
+            catch(Exception ex)
             {
-                return BadRequest(ApiGenericsResult<CustomerResponseModel>.Failure(new[] { "You insert a wrong ID. Please, try again!" }));
+                return BadRequest(ApiGenericsResult<CustomerResponseModel>.Failure(new[] { $"{ex.Message}"}));
             }
         }
     }

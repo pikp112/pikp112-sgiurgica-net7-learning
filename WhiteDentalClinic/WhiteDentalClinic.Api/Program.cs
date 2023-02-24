@@ -1,6 +1,10 @@
+using Microsoft.EntityFrameworkCore;
 using WhiteDentalClinic.Application.MappingProfiles;
 using WhiteDentalClinic.Application.Services;
-using WhiteDentalClinic.DataAccess.Repositories;
+using WhiteDentalClinic.DataAccess;
+using WhiteDentalClinic.DataAccess.Repositories.CustomerRepository;
+using WhiteDentalClinic.DataAccess.Repositories.DentistRepository;
+using WhiteDentalClinic.Shared.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,9 +16,25 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Add dependecy injection
-//builder.Services.AddScoped<ICustomerService, CustomerService>();
-//builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<ICustomerService, CustomerService>();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+
+builder.Services.AddScoped<IDentistService,DentistService>();
+builder.Services.AddScoped<IDentistRepository, DentistRepository>();
+
+//builder.Services.AddTransient<IClaimService, ClaimService>();   // need to be deleted?
+
 builder.Services.AddAutoMapper(typeof(CustomerProfile));
+builder.Services.AddAutoMapper(typeof(DentistProfile));
+
+
+builder.Services.AddHttpContextAccessor();
+
+// Add db connection
+builder.Services.AddDbContext<ApiDbTempContext>(options =>
+{
+    options.UseInMemoryDatabase("TempDb");
+});
 
 var app = builder.Build();
 

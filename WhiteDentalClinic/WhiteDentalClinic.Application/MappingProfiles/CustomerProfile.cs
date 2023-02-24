@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WhiteDentalClinic.Application.Models.Customer;
 using WhiteDentalClinic.Application.Services;
-using WhiteDentalClinic.DataAccess.Entities.Customer;
+using WhiteDentalClinic.DataAccess.Entities.CustomerEntity;
 
 namespace WhiteDentalClinic.Application.MappingProfiles
 {

@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WhiteDentalClinic.DataAccess.Entities.Customer;
+using WhiteDentalClinic.DataAccess.Entities.CustomerEntity;
 
-namespace WhiteDentalClinic.DataAccess.Entities.Dentist
+namespace WhiteDentalClinic.DataAccess.Entities.DentistEntity
 {
     public class CustomerConfiguration : IEntityTypeConfiguration<Dentist>
     {
@@ -19,8 +19,7 @@ namespace WhiteDentalClinic.DataAccess.Entities.Dentist
             builder.Property(c => c.LastName)
                 .IsRequired();
             builder.Property(c => c.Age)
-                .IsRequired()
-                .HasMaxLength(120);
+                .IsRequired();
             builder.Property(c => c.Email)
                 .IsRequired();
         }

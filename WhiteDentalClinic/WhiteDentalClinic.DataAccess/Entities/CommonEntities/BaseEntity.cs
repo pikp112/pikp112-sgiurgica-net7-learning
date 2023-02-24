@@ -4,13 +4,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WhiteDentalClinic.DataAccess.Entities.CommonEntities;
 
-namespace WhiteDentalClinic.DataAccess.Entities.DentistEntity
+namespace WhiteDentalClinic.DataAccess.Entities
 {
-    public class BaseDentist
+    public abstract class BaseEntity
     {
         [EnumDataType(typeof(Role))]
-        public Role Role { get; } = Role.Dentist;
-
+        public abstract Role Role { get; }
     }
 }

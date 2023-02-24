@@ -25,11 +25,18 @@ namespace WhiteDentalClinic.DataAccess.Repositories
 
             return addedEntity;
         }
+        public TEntity UpdateEntity(TEntity entity)
+        {
+            DbSet.Update(entity);
+            Context.SaveChanges();
+            return entity;
+        }
 
         public void DeleteEntity(TEntity entity)
         {
             DbSet.Remove(entity);
             Context.SaveChanges();
         }
+
     }
 }

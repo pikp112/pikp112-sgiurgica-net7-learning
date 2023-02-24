@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WhiteDentalClinic.DataAccess.Entities.Customer
+namespace WhiteDentalClinic.DataAccess.Entities.CustomerEntity
 {
     public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
     {
@@ -18,8 +18,7 @@ namespace WhiteDentalClinic.DataAccess.Entities.Customer
             builder.Property(c => c.LastName)
                 .IsRequired();
             builder.Property(c => c.Age)
-                .IsRequired()
-                .HasMaxLength(120);
+                .IsRequired();
             builder.Property(c => c.Email)
                 .IsRequired();
         }

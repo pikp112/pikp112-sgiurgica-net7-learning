@@ -1,4 +1,4 @@
-﻿namespace WhiteDentalClinic.DataAccess.Entities
+﻿namespace WhiteDentalClinic.DataAccess.Entities.CommonEntities
 {
     public enum Role
     {

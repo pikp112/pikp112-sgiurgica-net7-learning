@@ -4,6 +4,7 @@
     {
         List<TEntity> GetAll();
         TEntity AddEntity(TEntity entity);
+        TEntity UpdateEntity(TEntity entity);
         void DeleteEntity(TEntity entity);
     }
 }
