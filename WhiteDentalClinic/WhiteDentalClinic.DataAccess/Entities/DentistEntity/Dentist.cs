@@ -13,6 +13,5 @@ namespace WhiteDentalClinic.DataAccess.Entities.Dentist
         [Range(16, 120)]
         public int Age { get; set; }
         public string Email { get; set; }
-
     }
 }
