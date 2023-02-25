@@ -1,4 +1,7 @@
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using WhiteDentalClinic.Application.MappingProfiles;
 using WhiteDentalClinic.Application.Services;
 using WhiteDentalClinic.DataAccess;
@@ -29,6 +32,7 @@ builder.Services.AddAutoMapper(typeof(DentistProfile));
 
 
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
 
 // Add db connection
 builder.Services.AddDbContext<ApiDbTempContext>(options =>

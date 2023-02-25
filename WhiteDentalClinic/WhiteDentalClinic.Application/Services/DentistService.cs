@@ -1,15 +1,7 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WhiteDentalClinic.Application.Exceptions;
-using WhiteDentalClinic.Application.Models.Customer;
 using WhiteDentalClinic.Application.Models.Dentist;
-using WhiteDentalClinic.DataAccess.Entities.CustomerEntity;
 using WhiteDentalClinic.DataAccess.Entities.DentistEntity;
-using WhiteDentalClinic.DataAccess.Repositories.CustomerRepository;
 using WhiteDentalClinic.DataAccess.Repositories.DentistRepository;
 using WhiteDentalClinic.Shared.Services;
 using UpdateDentistResponseModel = WhiteDentalClinic.Application.Models.Dentist.UpdateDentistResponseModel;
