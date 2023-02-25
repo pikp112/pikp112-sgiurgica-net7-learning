@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WhiteDentalClinic.Application.Models.Customer;
 using WhiteDentalClinic.Application.Models;
 using WhiteDentalClinic.Application.Services;
 using WhiteDentalClinic.Application.Models.Dentist;
@@ -36,7 +35,7 @@ namespace WhiteDentalClinic.Api.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ApiGenericsResult<CustomerResponseModel>.Failure(new[] { $"{ex.Message}" }));
+                return BadRequest(ApiGenericsResult<DentistResponseModel>.Failure(new[] { $"{ex.Message}" }));
             }
         }
 
@@ -49,7 +48,7 @@ namespace WhiteDentalClinic.Api.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ApiGenericsResult<UpdateCustomerResponseModel>.Failure(new[] { $"{ex.Message}" }));
+                return BadRequest(ApiGenericsResult<UpdateDentistResponseModel>.Failure(new[] { $"{ex.Message}" }));
             }
         }
 
@@ -62,10 +61,8 @@ namespace WhiteDentalClinic.Api.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ApiGenericsResult<CustomerResponseModel>.Failure(new[] { $"{ex.Message}" }));
+                return BadRequest(ApiGenericsResult<DentistResponseModel>.Failure(new[] { $"{ex.Message}" }));
             }
         }
-
-
     }
 }

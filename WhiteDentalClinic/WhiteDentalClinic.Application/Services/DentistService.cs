@@ -10,14 +10,14 @@ namespace WhiteDentalClinic.Application.Services
 {
     public class DentistService : IDentistService
     {
-        private readonly IClaimService _claimService;
+        //private readonly IClaimService _claimService;
         private readonly IMapper _mapper;
         private readonly IDentistRepository _dentistRepository;
-        public DentistService(IDentistRepository customerRepository, IMapper mapper, IClaimService claimService)
+        public DentistService(IDentistRepository dentistRepository, IMapper mapper)
         {
-            _dentistRepository = customerRepository;
+            _dentistRepository = dentistRepository;
             _mapper = mapper;
-            _claimService = claimService;
+            //_claimService = claimService;
         }
         public IEnumerable<DentistResponseModel> GetAllDentists()
         {
@@ -56,9 +56,9 @@ namespace WhiteDentalClinic.Application.Services
         {
             var selectedDentist = _dentistRepository.GetAll().FirstOrDefault(x => x.Id == id);
 
-            var userDentistId = _claimService.GetUserId();
+            var userDentistId = Guid.Parse(id.ToString()); // need to implement claim service - httcpcontext
 
-            if (userDentistId != selectedDentist.Id.ToString())
+            if (userDentistId != selectedDentist.Id)
             {
                 throw new BadRequestException("You can update only your email.");
             }

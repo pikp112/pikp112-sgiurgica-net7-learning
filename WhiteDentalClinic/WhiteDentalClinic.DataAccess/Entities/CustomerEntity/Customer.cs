@@ -1,6 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using WhiteDentalClinic.DataAccess.Entities.AppointmentEntity;
 using WhiteDentalClinic.DataAccess.Entities.CommonEntities;
-using WhiteDentalClinic.DataAccess.Entities.DentistEntity;
+using WhiteDentalClinic.DataAccess.Entities.CustomerDentistEntity;
 
 namespace WhiteDentalClinic.DataAccess.Entities.CustomerEntity
 {
@@ -18,5 +18,6 @@ namespace WhiteDentalClinic.DataAccess.Entities.CustomerEntity
         public override Role Role => Role.Customer;
         public DateTime CreatedAt { get; set; }
         public List<CustomerDentist> Dentists { get; set; }
+        public List<Appointment> Appointments { get; set; }
     }
 }

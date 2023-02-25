@@ -3,6 +3,7 @@ using WhiteDentalClinic.Application.Exceptions;
 using WhiteDentalClinic.Application.Models.Customer;
 using WhiteDentalClinic.DataAccess.Entities.CustomerEntity;
 using WhiteDentalClinic.DataAccess.Repositories.CustomerRepository;
+using WhiteDentalClinic.DataAccess.Repositories.MedicalServiceRepository;
 using WhiteDentalClinic.Shared.Services;
 using UpdateCustomerResponseModel = WhiteDentalClinic.Application.Models.Customer.UpdateCustomerResponseModel;
 
@@ -11,14 +12,14 @@ namespace WhiteDentalClinic.Application.Services
 {
     public class CustomerService : ICustomerService
     {
-        private readonly IClaimService _claimService;
+        //private readonly IClaimService _claimService;
         private readonly IMapper _mapper;
         private readonly ICustomerRepository _customerRepository;
-        public CustomerService(ICustomerRepository customerRepository, IMapper mapper, IClaimService claimService)
+        public CustomerService(ICustomerRepository customerRepository, IMapper mapper)
         {
             _customerRepository = customerRepository;
             _mapper = mapper;
-            _claimService = claimService;
+            //_claimService = claimService;
         }
         //poti face o clasa generica de return
         public IEnumerable<CustomerResponseModel> GetAllCustomers()
@@ -45,9 +46,9 @@ namespace WhiteDentalClinic.Application.Services
         {
             var selectedCustomer = _customerRepository.GetAll().FirstOrDefault(x => x.Id == id);
 
-            var userCustomerId = _claimService.GetUserId();
+            var userCustomerId = Guid.Parse(id.ToString()); // need to implement claim service - httcpcontext
 
-            if(userCustomerId != selectedCustomer.Id.ToString())
+            if (userCustomerId != selectedCustomer.Id)
             {
                 throw new BadRequestException("You can update only your email.");
             }
@@ -59,7 +60,6 @@ namespace WhiteDentalClinic.Application.Services
                 Id = _customerRepository.UpdateEntity(selectedCustomer).Id
             };
         }
-
         public CustomerResponseModel DeleteCustomer(Guid id)
         {
             var customerById = _customerRepository.GetAll().FirstOrDefault(x => x.Id == id);

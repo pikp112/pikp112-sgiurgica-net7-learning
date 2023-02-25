@@ -1,7 +1,7 @@
 ﻿using WhiteDentalClinic.DataAccess.Entities.DentistEntity;
 using WhiteDentalClinic.DataAccess.Entities.CustomerEntity;
 
-namespace WhiteDentalClinic.DataAccess.Entities.CommonEntities
+namespace WhiteDentalClinic.DataAccess.Entities.CustomerDentistEntity
 {
     public class CustomerDentist
     {

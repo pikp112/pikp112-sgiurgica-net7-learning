@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WhiteDentalClinic.DataAccess.Entities.AppointmentEntity;
 
 namespace WhiteDentalClinic.DataAccess.Entities.CustomerEntity
 {
@@ -21,6 +22,9 @@ namespace WhiteDentalClinic.DataAccess.Entities.CustomerEntity
                 .IsRequired();
             builder.Property(c => c.Email)
                 .IsRequired();
+            builder.HasMany(a => a.Appointments)
+                .WithOne(a => a.Customer)
+                .HasForeignKey(a => a.CustomerId);
         }
     }
 }

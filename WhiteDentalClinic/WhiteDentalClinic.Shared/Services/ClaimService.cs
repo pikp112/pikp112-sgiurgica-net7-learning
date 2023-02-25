@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace WhiteDentalClinic.Shared.Services
 {
+    // i will implement after authentification
     public class ClaimService : IClaimService
     {
         private readonly IHttpContextAccessor _httpContextAccessor;

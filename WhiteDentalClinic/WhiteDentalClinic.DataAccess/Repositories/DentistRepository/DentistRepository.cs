@@ -9,7 +9,7 @@ namespace WhiteDentalClinic.DataAccess.Repositories.DentistRepository
 {
     public class DentistRepository : BaseRepository<Dentist>, IDentistRepository
     {
-        protected DentistRepository(ApiDbTempContext context) : base(context)
+        public DentistRepository(ApiDbTempContext context) : base(context)
         {
         }
     }

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using WhiteDentalClinic.DataAccess.Entities.CustomerEntity;
 using WhiteDentalClinic.DataAccess.Entities.DentistEntity;
+using WhiteDentalClinic.DataAccess.Entities.CustomerDentistEntity;
 
 namespace WhiteDentalClinic.DataAccess.Entities.CommonEntities
 {

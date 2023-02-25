@@ -8,6 +8,8 @@ using WhiteDentalClinic.DataAccess;
 using WhiteDentalClinic.DataAccess.Repositories.CustomerRepository;
 using WhiteDentalClinic.DataAccess.Repositories.DentistRepository;
 using WhiteDentalClinic.Shared.Services;
+using WhiteDentalClinic.DataAccess.Repositories.MedicalServiceRepository;
+using WhiteDentalClinic.DataAccess.Repositories.AppointmentRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,14 +27,23 @@ builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<IDentistService,DentistService>();
 builder.Services.AddScoped<IDentistRepository, DentistRepository>();
 
-//builder.Services.AddTransient<IClaimService, ClaimService>();   // need to be deleted?
+builder.Services.AddScoped<IMedicalServiceService, MedicalServiceService>();
+builder.Services.AddScoped<IMedicalServiceRepository, MedicalServiceRepository>();
+
+builder.Services.AddScoped<IAppointmentService, AppointmentService>();
+builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+
+
+//builder.Services.AddTransient<IClaimService, ClaimService>();   
 
 builder.Services.AddAutoMapper(typeof(CustomerProfile));
 builder.Services.AddAutoMapper(typeof(DentistProfile));
+builder.Services.AddAutoMapper(typeof(MedicalServiceProfile));
+builder.Services.AddAutoMapper(typeof(AppointmentProfile));
 
 
-builder.Services.AddHttpContextAccessor();
-builder.Services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
+//builder.Services.AddHttpContextAccessor();
+//builder.Services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
 
 // Add db connection
 builder.Services.AddDbContext<ApiDbTempContext>(options =>
@@ -40,7 +51,7 @@ builder.Services.AddDbContext<ApiDbTempContext>(options =>
     options.UseInMemoryDatabase("TempDb");
 });
 
-var app = builder.Build();
+ var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
