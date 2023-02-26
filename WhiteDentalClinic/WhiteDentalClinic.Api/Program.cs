@@ -10,6 +10,7 @@ using WhiteDentalClinic.DataAccess.Repositories.DentistRepository;
 using WhiteDentalClinic.Shared.Services;
 using WhiteDentalClinic.DataAccess.Repositories.MedicalServiceRepository;
 using WhiteDentalClinic.DataAccess.Repositories.AppointmentRepository;
+using WhiteDentalClinic.Application.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,7 +49,7 @@ builder.Services.AddAutoMapper(typeof(AppointmentProfile));
 // Add db connection
 builder.Services.AddDbContext<ApiDbTempContext>(options =>
 {
-    options.UseInMemoryDatabase("TempDb");
+    options.UseSqlServer("Data Source=(LocalDb)\\MSSQLLocalDb;Initial Catalog=WhiteDentalClinic;Integrated Security = True");
 });
 
  var app = builder.Build();

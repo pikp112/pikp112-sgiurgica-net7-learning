@@ -1,6 +1,6 @@
 ﻿using WhiteDentalClinic.Application.Models.Customer;
 
-namespace WhiteDentalClinic.Application.Services
+namespace WhiteDentalClinic.Application.Services.Interfaces
 {
     public interface ICustomerService
     {

@@ -5,11 +5,11 @@ namespace WhiteDentalClinic.Application.Models.AppointmentModel
     public class CreateAppointmentRequestModel
     {
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Day { get; set; }
 
         [DataType(DataType.Time)]
-        [DisplayFormat(DataFormatString = "{0:hh:mm:ss}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:H:mm:ss}")]
         public DateTime StartTime { get; set; }
         public Guid CustomerId { get; set; }
     }

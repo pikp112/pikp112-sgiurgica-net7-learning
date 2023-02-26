@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WhiteDentalClinic.Application.Models.Dentist;
 using WhiteDentalClinic.Application.Models;
-using WhiteDentalClinic.Application.Services;
 using WhiteDentalClinic.Application.Models.MedicalServiceModel;
+using WhiteDentalClinic.Application.Services.Interfaces;
 
 namespace WhiteDentalClinic.Api.Controllers
 {

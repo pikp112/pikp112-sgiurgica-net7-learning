@@ -19,7 +19,7 @@ namespace WhiteDentalClinic.DataAccess.Entities.AppointmentEntity
         [DataType(DataType.Time)]
         [DisplayFormat(DataFormatString = "{0:hh:mm}")]
         public DateTime FinishTime { get; set; }
-
+        public TimeSpan Duration => FinishTime - StartTime;
         public Guid CustomerId { get; set; }
         public Customer Customer { get; set; }
     }

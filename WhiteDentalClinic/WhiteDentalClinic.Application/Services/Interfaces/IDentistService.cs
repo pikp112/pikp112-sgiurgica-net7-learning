@@ -1,8 +1,8 @@
 ﻿using WhiteDentalClinic.Application.Models.Dentist;
 
-namespace WhiteDentalClinic.Application.Services
+namespace WhiteDentalClinic.Application.Services.Interfaces
 {
-    public interface IDentistService 
+    public interface IDentistService
     {
         IEnumerable<DentistResponseModel> GetAllDentists();
         DentistResponseModel GetDentistById(Guid id);

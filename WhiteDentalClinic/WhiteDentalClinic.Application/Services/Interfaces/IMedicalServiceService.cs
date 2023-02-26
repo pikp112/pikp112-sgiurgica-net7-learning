@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 using WhiteDentalClinic.Application.Models.MedicalServiceModel;
 using WhiteDentalClinic.DataAccess.Entities.MedicalServiceEntity;
 
-namespace WhiteDentalClinic.Application.Services
+namespace WhiteDentalClinic.Application.Services.Interfaces
 {
     public interface IMedicalServiceService
     {
         IEnumerable<ResponseMedicalServices> GetAllMedicalServices();
         ResponseMedicalServices CreateAMedicalService(CreateMedicalService requestMedicalServiceModel);
         UpdateResponseMedicalService UpdateMedicalService(Guid id, UpdateRequestMedicalService updateMedicalServiceModel);
-        ResponseMedicalServices DeleteMedicalService(Guid id );
+        ResponseMedicalServices DeleteMedicalService(Guid id);
     }
 }

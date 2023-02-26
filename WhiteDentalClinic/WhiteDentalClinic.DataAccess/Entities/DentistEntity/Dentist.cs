@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using WhiteDentalClinic.DataAccess.Entities.CommonEntities;
 using WhiteDentalClinic.DataAccess.Entities.CustomerDentistEntity;
+using WhiteDentalClinic.DataAccess.Entities.MedicalServiceEntity;
 
 namespace WhiteDentalClinic.DataAccess.Entities.DentistEntity
 {
@@ -17,7 +18,8 @@ namespace WhiteDentalClinic.DataAccess.Entities.DentistEntity
         public string Email { get; set; }
         public override Role Role => Role.Dentist;
         public DateTime CreatedAt { get; set; }
-
         public List<CustomerDentist> Customers { get; set; }
+        public Guid MedicalServiceId { get; set; }
+        public MedicalService MedicalService { get; set; }
     }
 }

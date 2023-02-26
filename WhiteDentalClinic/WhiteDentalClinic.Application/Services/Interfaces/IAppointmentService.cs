@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using WhiteDentalClinic.Application.Models.AppointmentModel;
 using WhiteDentalClinic.Application.Models.Dentist;
 
-namespace WhiteDentalClinic.Application.Services
+namespace WhiteDentalClinic.Application.Services.Interfaces
 {
     public interface IAppointmentService
     {

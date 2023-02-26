@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using WhiteDentalClinic.Application.Exceptions;
 using WhiteDentalClinic.Application.Models.Dentist;
+using WhiteDentalClinic.Application.Services.Interfaces;
 using WhiteDentalClinic.DataAccess.Entities.DentistEntity;
 using WhiteDentalClinic.DataAccess.Repositories.DentistRepository;
 using WhiteDentalClinic.Shared.Services;
