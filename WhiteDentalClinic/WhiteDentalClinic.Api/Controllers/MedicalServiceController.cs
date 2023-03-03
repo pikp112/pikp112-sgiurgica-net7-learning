@@ -17,7 +17,14 @@ namespace WhiteDentalClinic.Api.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<ResponseMedicalServices>> GetAllMedicalServices()
         {
-            return Ok(ApiGenericsResult<IEnumerable<ResponseMedicalServices>>.Success(_medicalService.GetAllMedicalServices()));
+            try
+            {
+                return Ok(ApiGenericsResult<IEnumerable<ResponseMedicalServices>>.Success(_medicalService.GetAllMedicalServices()));
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ApiGenericsResult<ResponseMedicalServices>.Failure(new[] { $"{ex.Message}" }));
+            }
         }
 
         [HttpPost]
@@ -42,6 +49,10 @@ namespace WhiteDentalClinic.Api.Controllers
             }
             catch (Exception ex)
             {
+                if(_medicalService.GetAllMedicalServices().ToList().First(x => x.Id == id) == null)
+                {
+                    return NotFound(ApiGenericsResult<UpdateDentistResponseModel>.Failure(new[] { $"{ex.Message}" }));
+                }
                 return BadRequest(ApiGenericsResult<UpdateDentistResponseModel>.Failure(new[] { $"{ex.Message}" }));
             }
         }
@@ -55,9 +66,12 @@ namespace WhiteDentalClinic.Api.Controllers
             }
             catch (Exception ex)
             {
+                if(_medicalService.GetAllMedicalServices().ToList().First(x => x.Id == id) == null)
+                {
+                    return NotFound(ApiGenericsResult<DentistResponseModel>.Failure(new[] { $"{ex.Message}" }));
+                }
                 return BadRequest(ApiGenericsResult<DentistResponseModel>.Failure(new[] { $"{ex.Message}" }));
             }
         }
-
     }
 }

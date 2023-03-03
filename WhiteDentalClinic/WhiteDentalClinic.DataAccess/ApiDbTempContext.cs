@@ -20,7 +20,7 @@ namespace WhiteDentalClinic.DataAccess
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
-            //base.OnModelCreating(modelBuilder); need to be deleted?
+            base.OnModelCreating(modelBuilder);
         }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Dentist> Dentists { get; set; }

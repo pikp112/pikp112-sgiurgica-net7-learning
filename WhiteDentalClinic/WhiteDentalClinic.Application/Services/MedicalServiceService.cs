@@ -5,17 +5,20 @@ using WhiteDentalClinic.Application.Models.MedicalServiceModel;
 using WhiteDentalClinic.Application.Services.Interfaces;
 using WhiteDentalClinic.DataAccess.Entities.MedicalServiceEntity;
 using WhiteDentalClinic.DataAccess.Repositories.MedicalServiceRepository;
+using WhiteDentalClinic.Shared.Services;
 
 namespace WhiteDentalClinic.Application.Services
 {
     public class MedicalServiceService : IMedicalServiceService
     {
+        private readonly IClaimService _claimService;
         private readonly IMapper _mapper;
         private readonly IMedicalServiceRepository _medicalServiceRepository;
-        public MedicalServiceService(IMedicalServiceRepository medicalServiceRepository, IMapper mapper) 
+        public MedicalServiceService(IMedicalServiceRepository medicalServiceRepository, IMapper mapper, IClaimService claimService) 
         {
             _medicalServiceRepository= medicalServiceRepository;
             _mapper = mapper;
+            _claimService = claimService;
         }
         public IEnumerable<ResponseMedicalServices> GetAllMedicalServices()
         {
@@ -43,9 +46,8 @@ namespace WhiteDentalClinic.Application.Services
         {
             var selectedMedicalService = _medicalServiceRepository.GetAll().FirstOrDefault(x => x.Id == id);
 
-            var medicalServiceId = Guid.Parse(id.ToString()); // need to implement claim service - httcpcontext
-
-            if (medicalServiceId != selectedMedicalService.Id)
+            var medicalServiceId = _claimService.GetUserId();
+            if (medicalServiceId != selectedMedicalService.Id.ToString())
             {
                 throw new BadRequestException("You can update only your email.");
             }

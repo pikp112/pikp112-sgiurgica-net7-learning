@@ -34,8 +34,9 @@ builder.Services.AddScoped<IMedicalServiceRepository, MedicalServiceRepository>(
 builder.Services.AddScoped<IAppointmentService, AppointmentService>();
 builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
 
+builder.Services.AddScoped<ITemplateService, TemplateService>();
 
-//builder.Services.AddTransient<IClaimService, ClaimService>();   
+builder.Services.AddTransient<IClaimService, ClaimService>();   
 
 builder.Services.AddAutoMapper(typeof(CustomerProfile));
 builder.Services.AddAutoMapper(typeof(DentistProfile));
@@ -43,8 +44,8 @@ builder.Services.AddAutoMapper(typeof(MedicalServiceProfile));
 builder.Services.AddAutoMapper(typeof(AppointmentProfile));
 
 
-//builder.Services.AddHttpContextAccessor();
-//builder.Services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
 
 // Add db connection
 builder.Services.AddDbContext<ApiDbTempContext>(options =>

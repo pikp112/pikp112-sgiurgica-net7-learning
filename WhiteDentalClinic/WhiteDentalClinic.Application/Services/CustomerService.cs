@@ -13,16 +13,15 @@ namespace WhiteDentalClinic.Application.Services
 {
     public class CustomerService : ICustomerService
     {
-        //private readonly IClaimService _claimService;
+        private readonly IClaimService _claimService;
         private readonly IMapper _mapper;
         private readonly ICustomerRepository _customerRepository;
-        public CustomerService(ICustomerRepository customerRepository, IMapper mapper)
+        public CustomerService(ICustomerRepository customerRepository, IMapper mapper, IClaimService claimService)
         {
             _customerRepository = customerRepository;
             _mapper = mapper;
-            //_claimService = claimService;
+            _claimService=claimService;
         }
-        //poti face o clasa generica de return
         public IEnumerable<CustomerResponseModel> GetAllCustomers()
         {
             var responseModelListCustomers = _customerRepository.GetAll();
@@ -47,9 +46,9 @@ namespace WhiteDentalClinic.Application.Services
         {
             var selectedCustomer = _customerRepository.GetAll().FirstOrDefault(x => x.Id == id);
 
-            var userCustomerId = Guid.Parse(id.ToString()); // need to implement claim service - httcpcontext
+            var userCustomerId = _claimService.GetUserId();
 
-            if (userCustomerId != selectedCustomer.Id)
+            if (userCustomerId != selectedCustomer.Id.ToString())
             {
                 throw new BadRequestException("You can update only your email.");
             }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using WhiteDentalClinic.Application.Models.AppointmentModel;
 using WhiteDentalClinic.Application.Models.Dentist;
 using WhiteDentalClinic.Application.Services.Interfaces;
@@ -17,10 +18,17 @@ namespace WhiteDentalClinic.Application.Services
             _appointmentRepository= appointmentRepository;
             _mapper= mapper;
         }
+        public IEnumerable<AppointmentResponseModel> GetAllAppointments()
+        {
+            var allAppointments = _appointmentRepository.GetAll();
+            return _mapper.Map<IEnumerable<AppointmentResponseModel>>(allAppointments);
+        }
         public IEnumerable<AppointmentResponseModel> GetAllAppointmentsByCustomer(Guid customerRequestId)
         {
-            var selectedAppointmentByCustomerId = _appointmentRepository.GetAll().Where(app => app.CustomerId== customerRequestId);
+            var selectedAppointmentByCustomerId = _appointmentRepository.GetAll().Where(app => app.CustomerId == customerRequestId);
+
             return _mapper.Map<IEnumerable<AppointmentResponseModel>>(selectedAppointmentByCustomerId);
+
         }
         public AppointmentResponseModel GetAppointmentById(Guid appointmentId)
         {
@@ -45,6 +53,46 @@ namespace WhiteDentalClinic.Application.Services
             _appointmentRepository.DeleteEntity(selectedAppointmentById);
 
             return _mapper.Map<AppointmentResponseModel>(selectedAppointmentById);
+        }
+
+        public IEnumerable<DateTime> GetAvailableTimeSlots(DateTime date, int durationInMinutes)
+        {
+            // Get all appointments for the specified date
+            var existingAppointments = _appointmentRepository
+                .GetAll()
+                .Where(a => a.Day == date)
+                .ToList();
+
+            // Calculate the available time slots based on the duration of each appointment
+            var startOfDay = new DateTime(date.Year, date.Month, date.Day, 9, 0, 0);
+            var endOfDay = new DateTime(date.Year, date.Month, date.Day, 17, 0, 0);
+            var currentSlot = startOfDay;
+            var availableSlots = new List<DateTime>();
+
+            while (currentSlot + TimeSpan.FromMinutes(durationInMinutes) <= endOfDay)
+            {
+                // Check if the current time slot is available
+                var isAvailable = true;
+                foreach (var appointment in existingAppointments)
+                {
+                    if (currentSlot >= appointment.StartTime && currentSlot < appointment.FinishTime)
+                    {
+                        isAvailable = false;
+                        break;
+                    }
+                }
+
+                // If the time slot is available, add it to the list
+                if (isAvailable)
+                {
+                    availableSlots.Add(currentSlot);
+                }
+
+                // Move to the next time slot
+                currentSlot += TimeSpan.FromMinutes(durationInMinutes);
+            }
+
+            return availableSlots;
         }
     }
 }
