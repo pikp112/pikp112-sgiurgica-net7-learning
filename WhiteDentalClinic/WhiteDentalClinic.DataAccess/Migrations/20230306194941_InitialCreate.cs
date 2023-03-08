@@ -39,27 +39,6 @@ namespace WhiteDentalClinic.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Appointments",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Day = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    StartTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    FinishTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CustomerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Appointments", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Appointments_Customers_CustomerId",
-                        column: x => x.CustomerId,
-                        principalTable: "Customers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Dentists",
                 columns: table => new
                 {
@@ -83,23 +62,27 @@ namespace WhiteDentalClinic.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CustomerDentists",
+                name: "Appointments",
                 columns: table => new
                 {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Day = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    StartTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FinishTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CustomerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DentistId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CustomerDentists", x => new { x.CustomerId, x.DentistId });
+                    table.PrimaryKey("PK_Appointments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CustomerDentists_Customers_CustomerId",
+                        name: "FK_Appointments_Customers_CustomerId",
                         column: x => x.CustomerId,
                         principalTable: "Customers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CustomerDentists_Dentists_DentistId",
+                        name: "FK_Appointments_Dentists_DentistId",
                         column: x => x.DentistId,
                         principalTable: "Dentists",
                         principalColumn: "Id",
@@ -112,8 +95,8 @@ namespace WhiteDentalClinic.DataAccess.Migrations
                 column: "CustomerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CustomerDentists_DentistId",
-                table: "CustomerDentists",
+                name: "IX_Appointments_DentistId",
+                table: "Appointments",
                 column: "DentistId");
 
             migrationBuilder.CreateIndex(
@@ -126,9 +109,6 @@ namespace WhiteDentalClinic.DataAccess.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Appointments");
-
-            migrationBuilder.DropTable(
-                name: "CustomerDentists");
 
             migrationBuilder.DropTable(
                 name: "Customers");

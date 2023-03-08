@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhiteDentalClinic.Applicati
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhiteDentalClinic.DataAccess", "WhiteDentalClinic.DataAccess\WhiteDentalClinic.DataAccess.csproj", "{021A0909-7751-48A0-B915-6C5B3BBB7435}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhiteDentalClinic.Shared", "WhiteDentalClinic.Shared\WhiteDentalClinic.Shared.csproj", "{7DCDBF0D-F6A9-4D4C-BFE6-23D728C7B6E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhiteDentalClinic.Shared", "WhiteDentalClinic.Shared\WhiteDentalClinic.Shared.csproj", "{7DCDBF0D-F6A9-4D4C-BFE6-23D728C7B6E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhiteDentalClinic.WebUI", "WhiteDentalClinic.WebUI\WhiteDentalClinic.WebUI.csproj", "{0EB45932-7947-4964-AA18-8F6DD1674DAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{7DCDBF0D-F6A9-4D4C-BFE6-23D728C7B6E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DCDBF0D-F6A9-4D4C-BFE6-23D728C7B6E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DCDBF0D-F6A9-4D4C-BFE6-23D728C7B6E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EB45932-7947-4964-AA18-8F6DD1674DAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EB45932-7947-4964-AA18-8F6DD1674DAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EB45932-7947-4964-AA18-8F6DD1674DAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EB45932-7947-4964-AA18-8F6DD1674DAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WhiteDentalClinic.DataAccess\WhiteDentalClinic.DataAccess.csproj" />
+    <ProjectReference Include="..\WhiteDentalClinic.Shared\WhiteDentalClinic.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

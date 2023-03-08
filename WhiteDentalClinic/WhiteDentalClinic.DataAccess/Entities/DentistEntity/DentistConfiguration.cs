@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WhiteDentalClinic.DataAccess.Entities.CustomerEntity;
+using WhiteDentalClinic.DataAccess.Entities.MedicalServiceEntity;
 
 namespace WhiteDentalClinic.DataAccess.Entities.DentistEntity
 {
@@ -22,6 +23,9 @@ namespace WhiteDentalClinic.DataAccess.Entities.DentistEntity
                 .IsRequired();
             builder.Property(c => c.Email)
                 .IsRequired();
+            builder.HasOne<MedicalService>(c => c.MedicalService)
+                .WithMany(sm => sm.Dentists)
+                .HasForeignKey(c => c.MedicalServiceId);
         }
     }
 }

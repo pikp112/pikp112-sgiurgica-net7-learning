@@ -22,9 +22,6 @@ namespace WhiteDentalClinic.DataAccess.Entities.CustomerEntity
                 .IsRequired();
             builder.Property(c => c.Email)
                 .IsRequired();
-            builder.HasMany(a => a.Appointments)
-                .WithOne(a => a.Customer)
-                .HasForeignKey(a => a.CustomerId);
         }
     }
 }

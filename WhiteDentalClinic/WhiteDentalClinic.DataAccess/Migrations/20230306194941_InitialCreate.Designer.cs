@@ -12,7 +12,7 @@ using WhiteDentalClinic.DataAccess;
 namespace WhiteDentalClinic.DataAccess.Migrations
 {
     [DbContext(typeof(ApiDbTempContext))]
-    [Migration("20230226093408_InitialCreate")]
+    [Migration("20230306194941_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,6 +36,9 @@ namespace WhiteDentalClinic.DataAccess.Migrations
                     b.Property<DateTime>("Day")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid>("DentistId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("FinishTime")
                         .HasColumnType("datetime2");
 
@@ -46,22 +49,9 @@ namespace WhiteDentalClinic.DataAccess.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("Appointments");
-                });
-
-            modelBuilder.Entity("WhiteDentalClinic.DataAccess.Entities.CustomerDentistEntity.CustomerDentist", b =>
-                {
-                    b.Property<Guid>("CustomerId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("DentistId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("CustomerId", "DentistId");
-
                     b.HasIndex("DentistId");
 
-                    b.ToTable("CustomerDentists");
+                    b.ToTable("Appointments");
                 });
 
             modelBuilder.Entity("WhiteDentalClinic.DataAccess.Entities.CustomerEntity.Customer", b =>
@@ -153,19 +143,8 @@ namespace WhiteDentalClinic.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Customer");
-                });
-
-            modelBuilder.Entity("WhiteDentalClinic.DataAccess.Entities.CustomerDentistEntity.CustomerDentist", b =>
-                {
-                    b.HasOne("WhiteDentalClinic.DataAccess.Entities.CustomerEntity.Customer", "Customer")
-                        .WithMany("Dentists")
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("WhiteDentalClinic.DataAccess.Entities.DentistEntity.Dentist", "Dentist")
-                        .WithMany("Customers")
+                        .WithMany("Appointments")
                         .HasForeignKey("DentistId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -189,13 +168,11 @@ namespace WhiteDentalClinic.DataAccess.Migrations
             modelBuilder.Entity("WhiteDentalClinic.DataAccess.Entities.CustomerEntity.Customer", b =>
                 {
                     b.Navigation("Appointments");
-
-                    b.Navigation("Dentists");
                 });
 
             modelBuilder.Entity("WhiteDentalClinic.DataAccess.Entities.DentistEntity.Dentist", b =>
                 {
-                    b.Navigation("Customers");
+                    b.Navigation("Appointments");
                 });
 
             modelBuilder.Entity("WhiteDentalClinic.DataAccess.Entities.MedicalServiceEntity.MedicalService", b =>

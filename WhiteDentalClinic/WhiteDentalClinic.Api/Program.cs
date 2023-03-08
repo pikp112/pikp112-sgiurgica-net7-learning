@@ -68,4 +68,12 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.UseCors(corsPolicyBuilder =>                //request de ORIUNDE, orice Header si orice Metoda (get, post, put etc.) 
+{
+    corsPolicyBuilder.AllowAnyOrigin()          //depinde de business
+    .AllowAnyHeader()
+    .AllowAnyMethod();
+});
+
+
 app.Run();
