@@ -1,11 +1,13 @@
 ﻿@page "/makeappointment";
 
 
-<h3>MakeAppointment</h3>
+<h2>MakeAppointment</h2>
 
 @*Add Placeholder="Choose a Date Range" in below code when no value is set to DateTimePicker*@
+<Syncfusion.Blazor.Calendars.SfDateTimePicker TValue="DateTime?" Value="@DateValue" Min="@MinDate" Max="@MaxDate">
 
-<SfDateTimePicker TValue="DateTime?" Value="@DateValue" Min="@MinDate" Max="@MaxDate"></SfDateTimePicker>
+</Syncfusion.Blazor.Calendars.SfDateTimePicker>
+
 
 @code{
     public DateTime? DateValue {get;set;} = new DateTime(DateTime.Now.Year,DateTime.Now.Month,10);

@@ -49,10 +49,17 @@ else
     {
         var temp = await Http.GetFromJsonAsync<ApiResult<DentistResponseModel>>("api/Dentists");
 
-        //foreach(var item in temp.Result)
-        //{
-          //  dentists.AddRange(item);
-        //}
+        dentists = new List<DentistResponseModel>()
+        {
+            new DentistResponseModel
+            {
+                Id = temp.Result.Id,
+                FirstName = temp.Result.FirstName,
+                LastName = temp.Result.LastName,
+                Age = temp.Result.Age,
+                Email = temp.Result.Email
+            }
+        };
     }
 
     public class DentistResponseModel
