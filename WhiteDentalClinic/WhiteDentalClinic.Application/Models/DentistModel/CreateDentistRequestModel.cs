@@ -16,7 +16,7 @@ namespace WhiteDentalClinic.Application.Models.Dentist
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        public Guid MedicalServiceId = Guid.Parse("e9de5e8d-2b22-4612-8bc9-08e8824b5480");
+        public Guid MedicalServiceId = Guid.Parse("a800be78-553c-4926-aab2-350bee4e9f19");      // for "medical consult" entity
 
     }
 }

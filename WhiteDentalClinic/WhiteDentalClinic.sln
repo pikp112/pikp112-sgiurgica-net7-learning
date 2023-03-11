@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhiteDentalClinic.DataAcces
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhiteDentalClinic.Shared", "WhiteDentalClinic.Shared\WhiteDentalClinic.Shared.csproj", "{7DCDBF0D-F6A9-4D4C-BFE6-23D728C7B6E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhiteDentalClinic.WebUI", "WhiteDentalClinic.WebUI\WhiteDentalClinic.WebUI.csproj", "{0EB45932-7947-4964-AA18-8F6DD1674DAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhiteDentalClinic.WebUI", "WhiteDentalClinic.WebUI\WhiteDentalClinic.WebUI.csproj", "{0EB45932-7947-4964-AA18-8F6DD1674DAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

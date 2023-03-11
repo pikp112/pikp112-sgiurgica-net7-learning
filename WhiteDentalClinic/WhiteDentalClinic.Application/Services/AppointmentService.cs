@@ -28,7 +28,6 @@ namespace WhiteDentalClinic.Application.Services
             var selectedAppointmentByCustomerId = _appointmentRepository.GetAll().Where(app => app.CustomerId == customerRequestId);
 
             return _mapper.Map<IEnumerable<AppointmentResponseModel>>(selectedAppointmentByCustomerId);
-
         }
         public AppointmentResponseModel GetAppointmentById(Guid appointmentId)
         {
@@ -39,7 +38,6 @@ namespace WhiteDentalClinic.Application.Services
         public AppointmentResponseModel CreateAppointment(CreateAppointmentRequestModel requestAppointmentModel)
         {
             var newAppointment = _mapper.Map<Appointment>(requestAppointmentModel);
-            newAppointment.Id = Guid.NewGuid();
 
             this._appointmentRepository.AddEntity(newAppointment);
 
@@ -60,7 +58,7 @@ namespace WhiteDentalClinic.Application.Services
             // Get all appointments for the specified date
             var existingAppointments = _appointmentRepository
                 .GetAll()
-                .Where(a => a.Day == date)
+                .Where(a => a.dateTime == date)
                 .ToList();
 
             // Calculate the available time slots based on the duration of each appointment
@@ -75,7 +73,7 @@ namespace WhiteDentalClinic.Application.Services
                 var isAvailable = true;
                 foreach (var appointment in existingAppointments)
                 {
-                    if (currentSlot >= appointment.StartTime && currentSlot < appointment.FinishTime)
+                    if (currentSlot >= appointment.dateTime && currentSlot < appointment.dateTime)
                     {
                         isAvailable = false;
                         break;

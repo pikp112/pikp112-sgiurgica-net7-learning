@@ -12,7 +12,7 @@ using WhiteDentalClinic.DataAccess;
 namespace WhiteDentalClinic.DataAccess.Migrations
 {
     [DbContext(typeof(ApiDbTempContext))]
-    [Migration("20230306194941_InitialCreate")]
+    [Migration("20230310190440_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,16 +33,10 @@ namespace WhiteDentalClinic.DataAccess.Migrations
                     b.Property<Guid>("CustomerId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("Day")
-                        .HasColumnType("datetime2");
-
                     b.Property<Guid>("DentistId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("FinishTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("StartTime")
+                    b.Property<DateTime>("dateTime")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");

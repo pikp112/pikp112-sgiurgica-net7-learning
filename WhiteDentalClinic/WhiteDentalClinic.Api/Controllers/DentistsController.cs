@@ -13,7 +13,7 @@ namespace WhiteDentalClinic.Api.Controllers
             _dentistService= dentistService;
         }
 
-        [HttpGet]
+        [HttpGet("all")]
         public ActionResult<IEnumerable<DentistResponseModel>> GetAllDentists()
         {
             try
@@ -43,7 +43,7 @@ namespace WhiteDentalClinic.Api.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost("create")]
         public IActionResult CreateDentist(CreateDentistRequestModel requestDentistModel)
         {
             try
@@ -73,7 +73,7 @@ namespace WhiteDentalClinic.Api.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpDelete("delete")]
         public IActionResult DeleteDentist(Guid id)
         {
             try

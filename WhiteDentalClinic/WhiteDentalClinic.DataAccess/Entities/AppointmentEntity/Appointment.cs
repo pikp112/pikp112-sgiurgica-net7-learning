@@ -9,16 +9,7 @@ namespace WhiteDentalClinic.DataAccess.Entities.AppointmentEntity
     public class Appointment
     {
         public Guid Id { get; set; }
-
-        [DataType(DataType.Date)]
-        public DateTime Day { get; set; }
-
-        [DataType(DataType.Time)]
-        public DateTime StartTime { get; set; }
-
-        [DataType(DataType.Time)]
-        public DateTime FinishTime { get; set; }
-        public TimeSpan Duration => FinishTime - StartTime;
+        public DateTime dateTime { get; set; }
         public Guid CustomerId { get; set; }
         public Customer Customer { get; set; }
         public Guid DentistId { get; set; }

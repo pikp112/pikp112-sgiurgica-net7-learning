@@ -14,7 +14,7 @@ namespace WhiteDentalClinic.Api.Controllers
             _appointmentService = appointmentService;
         }
 
-        [HttpGet]
+        [HttpGet("allapp/{customerRequestId}")]
         public ActionResult<IEnumerable<AppointmentResponseModel>> GetAllAppointmentsByCustomer(Guid customerRequestId)
         {
             try
@@ -49,7 +49,7 @@ namespace WhiteDentalClinic.Api.Controllers
 
         }
 
-        [HttpPost]
+        [HttpPost("create")]
         public IActionResult CreateAppointment(CreateAppointmentRequestModel requestAppointmentModel) 
         {
             try
@@ -62,7 +62,7 @@ namespace WhiteDentalClinic.Api.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpDelete("delete")]
         public IActionResult DeleteAppointment(Guid appointmentId)
         {
             try

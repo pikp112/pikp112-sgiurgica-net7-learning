@@ -47,19 +47,8 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        var temp = await Http.GetFromJsonAsync<ApiResult<DentistResponseModel>>("api/Dentists");
-
-        dentists = new List<DentistResponseModel>()
-        {
-            new DentistResponseModel
-            {
-                Id = temp.Result.Id,
-                FirstName = temp.Result.FirstName,
-                LastName = temp.Result.LastName,
-                Age = temp.Result.Age,
-                Email = temp.Result.Email
-            }
-        };
+        var temp = await Http.GetFromJsonAsync<ApiResult<IEnumerable<DentistResponseModel>>>("api/Dentists/all");
+        dentists = temp.Result.ToList();
     }
 
     public class DentistResponseModel

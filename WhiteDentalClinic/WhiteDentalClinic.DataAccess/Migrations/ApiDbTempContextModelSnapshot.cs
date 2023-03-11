@@ -31,16 +31,10 @@ namespace WhiteDentalClinic.DataAccess.Migrations
                     b.Property<Guid>("CustomerId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("Day")
-                        .HasColumnType("datetime2");
-
                     b.Property<Guid>("DentistId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("FinishTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("StartTime")
+                    b.Property<DateTime>("dateTime")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
