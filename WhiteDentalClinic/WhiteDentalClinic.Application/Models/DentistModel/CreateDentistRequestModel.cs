@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using WhiteDentalClinic.Application.Services;
+using WhiteDentalClinic.DataAccess.Entities.ServiceDentist;
 
 namespace WhiteDentalClinic.Application.Models.Dentist
 {
@@ -16,7 +18,6 @@ namespace WhiteDentalClinic.Application.Models.Dentist
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        public Guid MedicalServiceId = Guid.Parse("a800be78-553c-4926-aab2-350bee4e9f19");      // for "medical consult" entity
-
+        public List<DentistServiceEntity> dentistServices = new List<DentistServiceEntity>();
     }
 }

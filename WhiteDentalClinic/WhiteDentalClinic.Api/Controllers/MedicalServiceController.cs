@@ -14,7 +14,7 @@ namespace WhiteDentalClinic.Api.Controllers
             _medicalService= medicalService;
         }
 
-        [HttpGet]
+        [HttpGet("allmedservices")]
         public ActionResult<IEnumerable<ResponseMedicalServices>> GetAllMedicalServices()
         {
             try
@@ -26,8 +26,20 @@ namespace WhiteDentalClinic.Api.Controllers
                 return BadRequest(ApiGenericsResult<ResponseMedicalServices>.Failure(new[] { $"{ex.Message}" }));
             }
         }
+        [HttpGet("allmedservices/dentist{requestDentistId}")]
+        public ActionResult<IEnumerable<ResponseMedicalServices>> GetAllMedicalServicesByDentistId(Guid requestDentistId)
+        {
+            try
+            {
+                return Ok(ApiGenericsResult<IEnumerable<ResponseMedicalServices>>.Success(_medicalService.GetAllMedicalServicesByDentistId(requestDentistId)));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ApiGenericsResult<ResponseMedicalServices>.Failure(new[] { $"{ex.Message}" }));
+            }
+        }
 
-        [HttpPost]
+        [HttpPost("create")]
         public IActionResult CreateAMedicalService(CreateMedicalService requestMedicalServiceModel)
         {
             try
@@ -57,7 +69,7 @@ namespace WhiteDentalClinic.Api.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpDelete("delete")]
         public IActionResult DeleteMedicalService(Guid id)
         {
             try

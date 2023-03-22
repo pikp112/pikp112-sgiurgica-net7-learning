@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WhiteDentalClinic.DataAccess.Entities.DentistEntity;
+﻿using WhiteDentalClinic.DataAccess.Entities.ServiceDentist;
 
 namespace WhiteDentalClinic.DataAccess.Entities.MedicalServiceEntity
 {
@@ -12,6 +7,6 @@ namespace WhiteDentalClinic.DataAccess.Entities.MedicalServiceEntity
         public Guid Id { get; set; }
         public string Name { get; set; }
         public int Price { get; set; }
-        public List<Dentist> Dentists { get; set; }
+        public List<DentistServiceEntity> dentistServices { get; set; }
     }
 }

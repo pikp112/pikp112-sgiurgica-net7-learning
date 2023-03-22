@@ -2,7 +2,7 @@
 {
     public class UpdateDentistRequestModel
     {
-        public string Email { get; set; }
-        public Guid MedicalServiceId { get; set; }
+        public string email { get; set; }
+        public Guid addAnotherMedicalServiceId { get; set; }
     }
 }

@@ -11,6 +11,8 @@ using WhiteDentalClinic.Shared.Services;
 using WhiteDentalClinic.DataAccess.Repositories.MedicalServiceRepository;
 using WhiteDentalClinic.DataAccess.Repositories.AppointmentRepository;
 using WhiteDentalClinic.Application.Services.Interfaces;
+using WhiteDentalClinic.DataAccess.Repositories.DentistServiceRepository;
+using WhiteDentalClinic.DataAccess.Repositories.DentistRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +29,8 @@ builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 
 builder.Services.AddScoped<IDentistService,DentistService>();
 builder.Services.AddScoped<IDentistRepository, DentistRepository>();
+
+builder.Services.AddScoped<IDentistServiceRepository, DentistServiceRepositoryBase>();
 
 builder.Services.AddScoped<IMedicalServiceService, MedicalServiceService>();
 builder.Services.AddScoped<IMedicalServiceRepository, MedicalServiceRepository>();

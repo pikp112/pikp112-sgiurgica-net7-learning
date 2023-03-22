@@ -26,7 +26,7 @@ namespace WhiteDentalClinic.Api.Controllers
             }
         }
 
-        [HttpGet("{id:guid}")]
+        [HttpGet("get{id:guid}")]
         public IActionResult GetDentistById(Guid id)
         {
             try
@@ -56,7 +56,7 @@ namespace WhiteDentalClinic.Api.Controllers
             }
         }
 
-        [HttpPut("{id:guid}")]
+        [HttpPut("update{id:guid}")]
         public IActionResult UpdateDentist (Guid id, UpdateDentistRequestModel updateDentistModel)
         {
             try

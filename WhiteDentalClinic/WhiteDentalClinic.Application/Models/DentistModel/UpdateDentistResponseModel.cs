@@ -3,6 +3,5 @@
     public class UpdateDentistResponseModel
     {
         public Guid Id { get; set; }
-
     }
 }

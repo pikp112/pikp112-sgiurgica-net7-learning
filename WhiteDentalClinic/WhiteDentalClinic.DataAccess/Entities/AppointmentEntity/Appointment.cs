@@ -9,7 +9,7 @@ namespace WhiteDentalClinic.DataAccess.Entities.AppointmentEntity
     public class Appointment
     {
         public Guid Id { get; set; }
-        public DateTime dateTime { get; set; }
+        public DateTime? dateTime { get; set; }
         public Guid CustomerId { get; set; }
         public Customer Customer { get; set; }
         public Guid DentistId { get; set; }

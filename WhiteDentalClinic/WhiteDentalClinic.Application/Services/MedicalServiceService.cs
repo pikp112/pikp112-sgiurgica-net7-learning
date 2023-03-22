@@ -26,6 +26,13 @@ namespace WhiteDentalClinic.Application.Services
             return _mapper.Map<IEnumerable<ResponseMedicalServices>>(listMedicalServices);
         }
 
+        public IEnumerable<ResponseMedicalServices> GetAllMedicalServicesByDentistId(Guid requestDentistId)
+        {
+
+            var listMedicalServices = _medicalServiceRepository.GetAll().Where(x => x.Id == requestDentistId);
+            return _mapper.Map<IEnumerable<ResponseMedicalServices>>(listMedicalServices);
+        }
+
         public ResponseMedicalServices CreateAMedicalService(CreateMedicalService requestMedicalServiceModel)
         {
             var newMedicalService = _mapper.Map<MedicalService>(requestMedicalServiceModel);

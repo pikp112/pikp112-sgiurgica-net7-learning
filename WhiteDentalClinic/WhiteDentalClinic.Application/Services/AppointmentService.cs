@@ -29,6 +29,13 @@ namespace WhiteDentalClinic.Application.Services
 
             return _mapper.Map<IEnumerable<AppointmentResponseModel>>(selectedAppointmentByCustomerId);
         }
+        public IEnumerable<AppointmentResponseModel> GetAllAppointmentsByDentist(Guid dentistRequestId)
+        {
+            var selectedAppointmentByDentistId = _appointmentRepository.GetAll().Where(app => app.DentistId == dentistRequestId);
+
+            return _mapper.Map<IEnumerable<AppointmentResponseModel>>(selectedAppointmentByDentistId);
+        }
+
         public AppointmentResponseModel GetAppointmentById(Guid appointmentId)
         {
             var selectedAppointmentById = _appointmentRepository.GetAll().FirstOrDefault(app => app.Id == appointmentId);
@@ -39,7 +46,7 @@ namespace WhiteDentalClinic.Application.Services
         {
             var newAppointment = _mapper.Map<Appointment>(requestAppointmentModel);
 
-            this._appointmentRepository.AddEntity(newAppointment);
+            _appointmentRepository.AddEntity(newAppointment);
 
             return _mapper.Map<AppointmentResponseModel>(newAppointment);
         }

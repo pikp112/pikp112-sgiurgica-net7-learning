@@ -12,6 +12,8 @@ namespace WhiteDentalClinic.Application.Services.Interfaces
     {
         IEnumerable<ResponseMedicalServices> GetAllMedicalServices();
         ResponseMedicalServices CreateAMedicalService(CreateMedicalService requestMedicalServiceModel);
+        IEnumerable<ResponseMedicalServices> GetAllMedicalServicesByDentistId(Guid requestDentistId);
+
         UpdateResponseMedicalService UpdateMedicalService(Guid id, UpdateRequestMedicalService updateMedicalServiceModel);
         ResponseMedicalServices DeleteMedicalService(Guid id);
     }

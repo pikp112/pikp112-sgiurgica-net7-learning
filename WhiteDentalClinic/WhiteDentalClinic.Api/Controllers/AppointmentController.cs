@@ -14,7 +14,7 @@ namespace WhiteDentalClinic.Api.Controllers
             _appointmentService = appointmentService;
         }
 
-        [HttpGet("allapp/{customerRequestId}")]
+        [HttpGet("allapp/customer{customerRequestId}")]
         public ActionResult<IEnumerable<AppointmentResponseModel>> GetAllAppointmentsByCustomer(Guid customerRequestId)
         {
             try
@@ -23,13 +23,31 @@ namespace WhiteDentalClinic.Api.Controllers
             }
             catch (Exception ex)
             {
-                if(_appointmentService.GetAllAppointments().ToList().First(x => x.Id == customerRequestId) ==null)
+                if(_appointmentService.GetAllAppointments().ToList().First(x => x.CustomerId == customerRequestId) ==null)
                 {
                     return NotFound(ApiGenericsResult<AppointmentResponseModel>.Failure(new[] { $"{ex.Message}" }));
                 }
                 return BadRequest(ApiGenericsResult<AppointmentResponseModel>.Failure(new[] { $"{ex.Message}" }));
             }
         }
+
+        [HttpGet("allapp/dentist{dentistRequestId}")]
+        public ActionResult<IEnumerable<AppointmentResponseModel>> GetAllAppointmentsByDentist(Guid dentistRequestId)
+        {
+            try
+            {
+                return Ok(ApiGenericsResult<IEnumerable<AppointmentResponseModel>>.Success(_appointmentService.GetAllAppointmentsByDentist(dentistRequestId)));
+            }
+            catch (Exception ex)
+            {
+                if (_appointmentService.GetAllAppointments().ToList().Select(x => x.DentistId == dentistRequestId) ==null)
+                {
+                    return NotFound(ApiGenericsResult<AppointmentResponseModel>.Failure(new[] { $"{ex.Message}" }));
+                }
+                return BadRequest(ApiGenericsResult<AppointmentResponseModel>.Failure(new[] { $"{ex.Message}" }));
+            }
+        }
+
 
         [HttpGet("{id:guid}")]
         public IActionResult GetAppointmentById(Guid id)

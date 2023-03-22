@@ -23,9 +23,6 @@ namespace WhiteDentalClinic.DataAccess.Entities.DentistEntity
                 .IsRequired();
             builder.Property(c => c.Email)
                 .IsRequired();
-            builder.HasOne<MedicalService>(c => c.MedicalService)
-                .WithMany(sm => sm.Dentists)
-                .HasForeignKey(c => c.MedicalServiceId);
         }
     }
 }

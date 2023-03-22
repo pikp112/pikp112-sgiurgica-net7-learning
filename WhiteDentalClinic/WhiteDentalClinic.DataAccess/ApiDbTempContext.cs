@@ -4,6 +4,7 @@ using WhiteDentalClinic.DataAccess.Entities.AppointmentEntity;
 using WhiteDentalClinic.DataAccess.Entities.CustomerEntity;
 using WhiteDentalClinic.DataAccess.Entities.DentistEntity;
 using WhiteDentalClinic.DataAccess.Entities.MedicalServiceEntity;
+using WhiteDentalClinic.DataAccess.Entities.ServiceDentist;
 
 namespace WhiteDentalClinic.DataAccess
 {
@@ -24,6 +25,7 @@ namespace WhiteDentalClinic.DataAccess
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Dentist> Dentists { get; set; }
         public DbSet<MedicalService> MedicalServices { get; set; }
+        public DbSet<DentistServiceEntity> DentistServices { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
     }
 }

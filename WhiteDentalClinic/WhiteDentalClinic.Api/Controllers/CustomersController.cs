@@ -15,7 +15,7 @@ namespace WhiteDentalClinic.Api.Controllers
         }
 
         //need to check status response
-        [HttpGet]  
+        [HttpGet("all")]  
         public ActionResult<IEnumerable<CustomerResponseModel>> GetAllCustomers()
         {
             try
@@ -28,7 +28,7 @@ namespace WhiteDentalClinic.Api.Controllers
             }
         }
 
-        [HttpGet("{id:guid}")]
+        [HttpGet("get{id:guid}")]
         public IActionResult GetCustomerById(Guid id)
         {
             try
@@ -45,7 +45,7 @@ namespace WhiteDentalClinic.Api.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost("create")]
         public IActionResult CreateCustomer(CreateCustomerRequestModel requestCustomerModel) 
         {
             try
@@ -57,7 +57,7 @@ namespace WhiteDentalClinic.Api.Controllers
                 return BadRequest(ApiGenericsResult<CustomerResponseModel>.Failure(new[] {$"{ex.Message}"})); 
             }
         }
-        [HttpPut("{id:guid}")]
+        [HttpPut("update{id:guid}")]
         public IActionResult UpdateCustomer(Guid id, UpdateCustomerRequestModel updateCustomerModel)
         {
             try
@@ -74,7 +74,7 @@ namespace WhiteDentalClinic.Api.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpDelete("delete")]
         public IActionResult DeleteCustomer(Guid id)
         {
             try

@@ -26,6 +26,22 @@ namespace WhiteDentalClinic.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Dentists",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Age = table.Column<int>(type: "int", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Dentists", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "MedicalServices",
                 columns: table => new
                 {
@@ -36,29 +52,6 @@ namespace WhiteDentalClinic.DataAccess.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_MedicalServices", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Dentists",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Age = table.Column<int>(type: "int", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    MedicalServiceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Dentists", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Dentists_MedicalServices_MedicalServiceId",
-                        column: x => x.MedicalServiceId,
-                        principalTable: "MedicalServices",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -87,6 +80,31 @@ namespace WhiteDentalClinic.DataAccess.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "DentistServices",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    dentistId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    medicalServiceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DentistServices", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_DentistServices_Dentists_dentistId",
+                        column: x => x.dentistId,
+                        principalTable: "Dentists",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DentistServices_MedicalServices_medicalServiceId",
+                        column: x => x.medicalServiceId,
+                        principalTable: "MedicalServices",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Appointments_CustomerId",
                 table: "Appointments",
@@ -98,15 +116,23 @@ namespace WhiteDentalClinic.DataAccess.Migrations
                 column: "DentistId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Dentists_MedicalServiceId",
-                table: "Dentists",
-                column: "MedicalServiceId");
+                name: "IX_DentistServices_dentistId",
+                table: "DentistServices",
+                column: "dentistId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DentistServices_medicalServiceId",
+                table: "DentistServices",
+                column: "medicalServiceId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Appointments");
+
+            migrationBuilder.DropTable(
+                name: "DentistServices");
 
             migrationBuilder.DropTable(
                 name: "Customers");
